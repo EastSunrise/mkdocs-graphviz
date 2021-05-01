@@ -33,6 +33,17 @@ To use it in your Markdown doc,
 
 with SVG output:
 
+    ```dot
+    digraph G {
+        rankdir=LR
+        Earth [peripheries=2]
+        Mars
+        Earth -> Mars
+    }
+    ```
+
+or
+
     ```graphviz dot attack_plan.svg
     digraph G {
         rankdir=LR
