@@ -21,8 +21,8 @@ Python-Markdown-based static site generator, such as [MkDocs](http://www.mkdocs.
 
 # Usage
 
-Activate the `mkdocs_markdown_graphviz` extension. For example, with Mkdocs, you add a
-stanza to mkdocs.yml:
+Activate the `mkdocs_markdown_graphviz` extension. For example, with **Mkdocs**, you add a
+stanza to `mkdocs.yml`:
 
 ```yaml
 markdown_extensions:
