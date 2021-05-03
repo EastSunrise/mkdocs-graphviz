@@ -1,4 +1,4 @@
-Mkdocs Markdown Graphviz (for Python 3)
+Mkdocs Graphviz (for Python 3)
 =======================================
 
 This is just a continuation of the great job of :
@@ -17,16 +17,16 @@ Python-Markdown-based static site generator, such as [MkDocs](http://www.mkdocs.
 
 # Installation
 
-    $ pip install mkdocs-markdown-graphviz
+    $ pip install mkdocs-graphviz
 
 # Usage
 
-Activate the `mkdocs_markdown_graphviz` extension. For example, with **Mkdocs**, you add a
+Activate the `mkdocs_graphviz` extension. For example, with **Mkdocs**, you add a
 stanza to `mkdocs.yml`:
 
 ```yaml
 markdown_extensions:
-    - mkdocs_markdown_graphviz
+    - mkdocs_graphviz
 ```
 
 To use it in your Markdown doc, 

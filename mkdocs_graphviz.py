@@ -1,10 +1,10 @@
 """
-Graphviz extensions for Markdown (e.g. for mkdocs)
+Graphviz extension for Markdown (e.g. for mkdocs) :
 Renders the output inline, eliminating the need to configure an output
 directory.
 
 Supports outputs types of SVG and PNG. The output will be taken from the
-filename specified in the tag. Example:
+filename specified in the tag, if given, or. Example:
 
 in SVG:
 
@@ -50,11 +50,11 @@ import base64
 
 # Global vars
 BLOCK_RE_GRAVE_ACCENT = re.compile(
-        r'^[ ]*```graphviz[ ]* (?P<command>\w+)\s+(?P<filename>[^\s]+)\s*\n(?P<content>.*?)```\s*$',
+        r'^[\s]*```graphviz[\s]+(?P<command>\w+)\s+(?P<filename>[^\s]+)\s*\n(?P<content>.*?)```\n$',
     re.MULTILINE | re.DOTALL)
 
 BLOCK_RE_GRAVE_ACCENT_DOT = re.compile(
-        r'^[ ]*```dot.(?P<content>.*?)```\s*$',
+        r'^[ 	]*```dot\n(?P<content>.*?)```\s*$',
     re.MULTILINE | re.DOTALL)
 
 GRAPHVIZ_COMMAND = 0
@@ -63,21 +63,21 @@ GRAPHVIZ_COMMAND = 0
 SUPPORTED_COMMAMDS = ['dot', 'neato', 'fdp', 'sfdp', 'twopi', 'circo']
 
 
-class MkdocsMardownGraphvizExtension(markdown.Extension):
+class MkdocsGraphvizExtension(markdown.Extension):
 
     def extendMarkdown(self, md, md_globals):
-        """ Add MkdocsMarkdownGraphvizPreprocessor to the Markdown instance. """
+        """ Add MkdocsGraphvizPreprocessor to the Markdown instance. """
         md.registerExtension(self)
 
         md.preprocessors.add('graphviz_block',
-                             MkdocsMarkdownGraphvizPreprocessor(md),
+                             MkdocsGraphvizPreprocessor(md),
                              "_begin")
 
 
-class MkdocsMarkdownGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
+class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
 
     def __init__(self, md):
-        super(MkdocsMarkdownGraphvizPreprocessor, self).__init__(md)
+        super(MkdocsGraphvizPreprocessor, self).__init__(md)
 
     def repair_broken_svg_in(self, output):
         """Returns a repaired svg output. Indeed:
@@ -124,7 +124,7 @@ class MkdocsMarkdownGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
         Cela suppose que le 'text' réellement la commande, ce qui est censé être le cas lros de l'utilisation de cette fonction
         """
         # command = 'dot' or 'graphviz dot' or 'graphviz neato' or etc..
-        i_command = text.find(command)-3
+        i_command = text.find("```"+command)
         i_previous_linefeed = text[:i_command].rfind("\n")
         decalage = i_command - i_previous_linefeed-1
         return decalage
@@ -146,9 +146,10 @@ class MkdocsMarkdownGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
                     filename = m.group('filename')
                     decalage = self.get_decalage("graphviz "+command, text)
                 else: # DOT command
-                    filename = "test.svg"
+                    filename = "noname.svg"
                     command = "dot"
                     decalage = self.get_decalage(command, text)
+
                 filetype = filename[filename.rfind('.')+1:]
                 args = [command, '-T'+filetype]
                 content = m.group('content')
@@ -196,4 +197,4 @@ class MkdocsMarkdownGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
         return text.split("\n")
 
 def makeExtension(*args, **kwargs):
-    return MkdocsMardownGraphvizExtension(*args, **kwargs)
+    return MkdocsGraphvizExtension(*args, **kwargs)
