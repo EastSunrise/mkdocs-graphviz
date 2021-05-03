@@ -64,7 +64,7 @@ or with PNG:
     }
     ```
 
-Supported Graphviz commands: dot, neato, fdp, sfdp, twopi, circo.
+**Supported Graphviz commands: dot, neato, fdp, sfdp, twopi, circo.**
 
 # Credits
 
