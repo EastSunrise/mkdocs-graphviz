@@ -19,7 +19,7 @@ Python-Markdown-based static site generator, such as [MkDocs](http://www.mkdocs.
 
     $ pip install mkdocs-graphviz
 
-# Usage
+# Configuration
 
 Activate the `mkdocs_graphviz` extension. For example, with **Mkdocs**, you add a
 stanza to `mkdocs.yml`:
@@ -28,6 +28,45 @@ stanza to `mkdocs.yml`:
 markdown_extensions:
     - mkdocs_graphviz
 ```
+
+## Options
+
+**Optionnally**, use any (or a combination) of the following options with all colors being written as **HTML COLORS WITHOUT THE # SIGN** (the default values are written):
+
+```yaml
+markdown_extensions:
+    - mkdocs_graphviz:
+        color: 999999            # or any other HTML color WITHOUT the '#' sign
+        bgcolor: none            # or any other HTML color WITHOUT the '#' sign
+        node_color: 999999       # or any other HTML color WITHOUT the '#' sign
+        node_fontcolor: 999999   # or any other HTML color WITHOUT the '#' sign
+        edge_color: 999999       # or any other HTML color WITHOUT the '#' sign
+        edge_fontcolor: 999999   # or any other HTML color WITHOUT the '#' sign
+
+```
+
+Where:
+
+* `color` (default `999999` to be an *average* for dark and light modes in mkdocs) will modify **ALL** the following colors in just one parameter:
+    * All Nodes
+    * All Texts inside Nodes
+    * All Edges
+    * All Labels aside Edges
+    FORMAT
+* `bgcolor` (default `none`) sets :
+    * the background color of the graph (HTML FORMAT WITHOUT THE '#' SIGN)
+    * sets the graph to be transparent (`bgcolor: none`)
+* `node_color` (default `999999`) sets the color of all Nodes (HTML FORMAT WITHOUT THE '#' SIGN)
+* `node_fontcolor` (default `999999`) sets the color of all Texts inside Nodes (HTML FORMAT WITHOUT THE '#' SIGN)
+* `edge_color` (default `999999`) sets the color of all Edges (HTML FORMAT WITHOUT THE '#' SIGN)
+* `node_fontcolor` (default `999999`) sets the color of all Labels aside Edges (HTML FORMAT WITHOUT THE '#' SIGN)
+
+## Mixing Options
+
+* It is possible to define a general color of the graph with the `color` option, and then overwrite some of the values with the other options (you choose)
+* Colors defined with the options can always be overwritten as a **per Node basis**, or a **per Edge basis** directly inside of the graphviz/dot syntax
+
+# Usage
 
 To use it in your Markdown doc, 
 
@@ -68,10 +107,12 @@ or with PNG:
 
 # Credits
 
-Forked from [cesaremorel/markdown-inline-graphviz](https://github.com/cesaremorel/markdown-inline-graphviz)
+Initially Forked from [cesaremorel/markdown-inline-graphviz](https://github.com/cesaremorel/markdown-inline-graphviz)
 
 Inspired by [jawher/markdown-dot](https://github.com/jawher/markdown-dot),
 which renders the dot graph to a file instead of inline.
+
+All Other Credits : Rodrigo SCHWENCKE
 
 # License
 
