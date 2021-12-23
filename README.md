@@ -114,7 +114,7 @@ Initially Forked from [cesaremorel/markdown-inline-graphviz](https://github.com/
 Inspired by [jawher/markdown-dot](https://github.com/jawher/markdown-dot),
 which renders the dot graph to a file instead of inline.
 
-All Other Credits : [Rodrigo Schwencke](https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz)
+All Newer Credits ($\ge 2020$) : [Rodrigo Schwencke](https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz)
 
 # License
 
