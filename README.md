@@ -3,7 +3,7 @@ Mkdocs Graphviz (for Python 3)
 
 This is a continuation of the great job of (from newer to older):
 
-* Rodrigo Schwencke (for all Newer Credits) : [Rodrigo Schwencke](https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz)
+* Rodrigo Schwencke (for all Newer Credits) : [rodrigo.schwencke/mkdocs-graphviz](https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz)
 * Cesare Morel [cesaremorel/markdown-inline-graphviz](https://github.com/cesaremorel/markdown-inline-graphviz),
 * Steffen Prince in [sprin/markdown-inline-graphviz](https://github.com/sprin/markdown-inline-graphviz), 
 * Initially inspired by Jawher Moussa [jawher/markdown-dot](https://github.com/jawher/markdown-dot)
