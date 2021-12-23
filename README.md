@@ -33,7 +33,7 @@ markdown_extensions:
 
 ## Options
 
-**Optionnally**, use any (or a combination) of the following options with all colors being written as **HTML COLORS WITHOUT THE # SIGN** (the default values are written):
+**Optionnally**, use any (or a combination) of the following options with all colors being written as **HTML COLORS WITHOUT THE # SIGN** (the default values are written hereafter):
 
 ```yaml
 markdown_extensions:
@@ -106,6 +106,10 @@ or with PNG:
     ```
 
 **Supported Graphviz commands: dot, neato, fdp, sfdp, twopi, circo.**
+
+# CSS / JS Classes
+
+Each graph has both a `dot` and a `graphviz` class, wich can be customized after rendering (as an image) via CSS / JS.
 
 # Credits
 
