@@ -2,7 +2,7 @@ import os
 import sys
 from setuptools import setup
 
-VERSION = '1'
+VERSION = '1.1'
 
 if sys.argv[-1] == 'publish':
     if os.system("pip freeze | grep wheel"):
@@ -23,23 +23,28 @@ setup(
     version=VERSION,
     py_modules=["mkdocs_graphviz"],
     install_requires=['Markdown>=2.3.1'],
-    author="Rodrigo SCHWENCKE",
+    author="Rodrigo Schwencke",
     author_email="dev.hopper@lyceeperier.fr",
     description="Render Graphviz graphs in Mkdocs, as inline SVGs and PNGs, directly from your Markdown (python3 version)",
     long_description_content_type="text/markdown",
-    long_description="""This is just a continuation of the great job of :
+    long_description="""This is a continuation of the great initial job of :
 
+* All newer Credits: [Rodrigo Schwencke](https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz)
 * Cesare Morel [cesaremorel/markdown-inline-graphviz](https://github.com/cesaremorel/markdown-inline-graphviz), and before him,
 * Steffen Prince in [sprin/markdown-inline-graphviz](https://github.com/sprin/markdown-inline-graphviz), 
 * Initially inspired by Jawher Moussa [jawher/markdown-dot](https://github.com/jawher/markdown-dot)
     
-in order to get it work with pip3 and mkdocs.
+In order to get it work with pip (python3) and mkdocs.
 
 If you use python 2, please use the original extension instead.""",
     license="MIT",
     url="https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz.git",
     classifiers=[
         'Development Status :: 5 - Production/Stable',
+        'Intended Audience :: Education',
+        'Intended Audience :: End Users/Desktop',
+        'Intended Audience :: Information Technology',
+        'Intended Audience :: Science/Research',
         'Intended Audience :: Developers',
         'Topic :: Documentation',
         'Topic :: Text Processing',
@@ -53,5 +58,9 @@ If you use python 2, please use the original extension instead.""",
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Operating System :: OS Independent',
+        'Operating System :: Posix :: Linux',
+        'Operating System :: MacOS :: MacOS X',
+        'Operating System :: Microsoft :: Windows :: Windows 10',
     ],
 )
