@@ -62,22 +62,36 @@ GRAPHVIZ_COMMAND = 0
 # Command whitelist
 SUPPORTED_COMMAMDS = ['dot', 'neato', 'fdp', 'sfdp', 'twopi', 'circo']
 
+# DEFAULT COLOR OF NODES, EDGES AND FONT TEXTS
+DEFAULT_COLOR = '999999'
 
 class MkdocsGraphvizExtension(markdown.Extension):
+
+    def __init__(self, **kwargs):
+        self.config = {
+            'color' :          [DEFAULT_COLOR, 'Default color for Nodes & Edges'],
+            'bgcolor' :        ['none', 'Default bgcolor for Graph'],
+            'node_color' :     [DEFAULT_COLOR, 'Default color for Node Roundings'], 
+            'node_fontcolor' : [DEFAULT_COLOR, 'Default color for Node Texts'],
+            'edge_color' :     [DEFAULT_COLOR, 'Default color for Edge Roundings'],
+            'edge_fontcolor' : [DEFAULT_COLOR, 'Default color for Edge Texts']
+        }
+        super(MkdocsGraphvizExtension, self).__init__(**kwargs)
 
     def extendMarkdown(self, md, md_globals):
         """ Add MkdocsGraphvizPreprocessor to the Markdown instance. """
         md.registerExtension(self)
 
         md.preprocessors.add('graphviz_block',
-                             MkdocsGraphvizPreprocessor(md),
+                             MkdocsGraphvizPreprocessor(md, self.config),
                              "_begin")
 
 
 class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
 
-    def __init__(self, md):
+    def __init__(self, md, config):
         super(MkdocsGraphvizPreprocessor, self).__init__(md)
+        self.config = config
 
     def repair_broken_svg_in(self, output):
         """Returns a repaired svg output. Indeed:
@@ -151,10 +165,28 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
                     decalage = self.get_decalage(command, text)
 
                 filetype = filename[filename.rfind('.')+1:]
-                args = [command, '-T'+filetype]
+                node_color = node_fontcolor = edge_color = edge_fontcolor = self.config['color'][0]
+                bgcolor = self.config['bgcolor'][0]
+
+                if self.config['node_color'][0] != DEFAULT_COLOR:
+                    node_color = self.config['node_color'][0]
+                if self.config['node_fontcolor'][0] != DEFAULT_COLOR:
+                    node_fontcolor = self.config['node_fontcolor'][0]
+                if self.config['edge_color'][0] != DEFAULT_COLOR:
+                    edge_color = self.config['edge_color'][0]
+                if self.config['edge_fontcolor'][0] != DEFAULT_COLOR:
+                    edge_fontcolor = self.config['edge_fontcolor'][0]
+                
+                # RAW GRAPHVIZ BLOCK CONTENT
                 content = m.group('content')
+                args = [command, '-T'+filetype]
 
                 try:
+                    if self.config['bgcolor'][0] == 'None' or self.config['bgcolor'][0] == 'none':
+                        args = [command, '-Gbgcolor=none', f'-Ncolor=#{node_color}', f'-Nfontcolor=#{node_fontcolor}', f'-Ecolor=#{edge_color}', f'-Efontcolor=#{edge_fontcolor}', '-T'+filetype]
+                    else:
+                        args = [command, f'-Gbgcolor=#{bgcolor}', f'-Ncolor=#{node_color}', f'-Nfontcolor=#{node_fontcolor}', f'-Ecolor=#{edge_color}', f'-Efontcolor=#{edge_fontcolor}', '-T'+filetype]
+
                     proc = subprocess.Popen(
                         args,
                         stdin=subprocess.PIPE,
@@ -173,8 +205,9 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
                             data_url_filetype,
                             encoding,
                             output)
-                        img = " "*decalage+"![" + filename + "](" + data_path + ")"
-                    
+                        #img = " "*decalage+"![" + filename + "](" + data_path + ")"
+                        img = " "*decalage+"<img src=\""+ data_path + "\" class=\"dot graphviz\"/>"
+
                     if filetype == 'png':
                         data_url_filetype = 'png'
                         encoding = 'base64'
@@ -183,7 +216,8 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
                             data_url_filetype,
                             encoding,
                             output)
-                        img = " "*decalage+"![" + filename + "](" + data_path + ")"
+                        #img = " "*decalage+"![" + filename + "](" + data_path + ")"
+                        img = " "*decalage+"<img src=\""+ data_path + "\" />"
 
                     text = '%s\n%s\n%s' % (
                         text[:m.start()], img, text[m.end():])
