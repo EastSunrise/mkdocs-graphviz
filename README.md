@@ -61,7 +61,7 @@ Where:
 * `node_color` (default `999999`) sets the color of all Nodes (HTML FORMAT WITHOUT THE '#' SIGN)
 * `node_fontcolor` (default `999999`) sets the color of all Texts inside Nodes (HTML FORMAT WITHOUT THE '#' SIGN)
 * `edge_color` (default `999999`) sets the color of all Edges (HTML FORMAT WITHOUT THE '#' SIGN)
-* `node_fontcolor` (default `999999`) sets the color of all Labels aside Edges (HTML FORMAT WITHOUT THE '#' SIGN)
+* `edge_fontcolor` (default `999999`) sets the color of all Labels aside Edges (HTML FORMAT WITHOUT THE '#' SIGN)
 
 ## Mixing Options
 
