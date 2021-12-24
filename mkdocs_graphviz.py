@@ -69,12 +69,14 @@ class MkdocsGraphvizExtension(markdown.Extension):
 
     def __init__(self, **kwargs):
         self.config = {
-            'color' :          [DEFAULT_COLOR, 'Default color for Nodes & Edges'],
-            'bgcolor' :        ['none', 'Default bgcolor for Graph'],
-            'node_color' :     [DEFAULT_COLOR, 'Default color for Node Roundings'], 
-            'node_fontcolor' : [DEFAULT_COLOR, 'Default color for Node Texts'],
-            'edge_color' :     [DEFAULT_COLOR, 'Default color for Edge Roundings'],
-            'edge_fontcolor' : [DEFAULT_COLOR, 'Default color for Edge Texts']
+            'color' :           [DEFAULT_COLOR, 'Default color for Nodes & Edges'],
+            'bgcolor' :         ['none', 'Default bgcolor for Graph'],
+            'graph_color' :     [DEFAULT_COLOR, 'Default color for Graphs & Subgraphs/Clusters Roundings'], 
+            'graph_fontcolor' : [DEFAULT_COLOR, 'Default color for Graphs & Subgraphs/Clusters Titles'], 
+            'node_color' :      [DEFAULT_COLOR, 'Default color for Node Roundings'], 
+            'node_fontcolor' :  [DEFAULT_COLOR, 'Default color for Node Texts'],
+            'edge_color' :      [DEFAULT_COLOR, 'Default color for Edge Roundings'],
+            'edge_fontcolor' :  [DEFAULT_COLOR, 'Default color for Edge Texts']
         }
         super(MkdocsGraphvizExtension, self).__init__(**kwargs)
 
@@ -165,9 +167,13 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
                     decalage = self.get_decalage(command, text)
 
                 filetype = filename[filename.rfind('.')+1:]
-                node_color = node_fontcolor = edge_color = edge_fontcolor = self.config['color'][0]
-                bgcolor = self.config['bgcolor'][0]
+                graph_color = graph_fontcolor = node_color = node_fontcolor = edge_color = edge_fontcolor = self.config['color'][0]
+                bgcolor = self.config['bgcolor'][0] # 'none' by default
 
+                if self.config['graph_color'][0] != DEFAULT_COLOR:
+                    graph_color = self.config['graph_color'][0]
+                if self.config['graph_fontcolor'][0] != DEFAULT_COLOR:
+                    graph_fontcolor = self.config['graph_fontcolor'][0]
                 if self.config['node_color'][0] != DEFAULT_COLOR:
                     node_color = self.config['node_color'][0]
                 if self.config['node_fontcolor'][0] != DEFAULT_COLOR:
@@ -183,9 +189,9 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
 
                 try:
                     if self.config['bgcolor'][0] == 'None' or self.config['bgcolor'][0] == 'none':
-                        args = [command, '-Gbgcolor=none', f'-Ncolor=#{node_color}', f'-Nfontcolor=#{node_fontcolor}', f'-Ecolor=#{edge_color}', f'-Efontcolor=#{edge_fontcolor}', '-T'+filetype]
+                        args = [command, '-Gbgcolor=none', f'-Gcolor=#{graph_color}', f'-Gfontcolor=#{graph_fontcolor}', f'-Ncolor=#{node_color}', f'-Nfontcolor=#{node_fontcolor}', f'-Ecolor=#{edge_color}', f'-Efontcolor=#{edge_fontcolor}', '-T'+filetype]
                     else:
-                        args = [command, f'-Gbgcolor=#{bgcolor}', f'-Ncolor=#{node_color}', f'-Nfontcolor=#{node_fontcolor}', f'-Ecolor=#{edge_color}', f'-Efontcolor=#{edge_fontcolor}', '-T'+filetype]
+                        args = [command, f'-Gcolor=#{graph_color}', f'-Gfontcolor=#{graph_fontcolor}', f'-Gbgcolor=#{bgcolor}', f'-Ncolor=#{node_color}', f'-Nfontcolor=#{node_fontcolor}', f'-Ecolor=#{edge_color}', f'-Efontcolor=#{edge_fontcolor}', '-T'+filetype]
 
                     proc = subprocess.Popen(
                         args,
@@ -196,26 +202,23 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
                     output, err = proc.communicate()
 
                     if filetype == 'svg':
-                        output = self.repair_broken_svg_in(output)
+                        data_url_filetype = 'svg+xml'
                         encoding = 'base64'
+                        output = self.repair_broken_svg_in(output)
                         output = output.encode('utf-8')
                         output = base64.b64encode(output).decode('utf-8')
-                        data_url_filetype = 'svg+xml'
-                        data_path = "data:image/%s;%s,%s" % (
-                            data_url_filetype,
-                            encoding,
-                            output)
+
+                        data_path = f"""data:image/{data_url_filetype};{encoding},{output}"""
                         #img = " "*decalage+"![" + filename + "](" + data_path + ")"
-                        img = " "*decalage+"<img src=\""+ data_path + "\" class=\"dot graphviz\"/>"
+                        img = " "*decalage+f"""<img src="{data_path}" class="dot graphviz" />"""
 
                     if filetype == 'png':
                         data_url_filetype = 'png'
                         encoding = 'base64'
                         output = base64.b64encode(output).decode('utf-8')
-                        data_path = "data:image/%s;%s,%s" % (
-                            data_url_filetype,
-                            encoding,
-                            output)
+
+                        data_path = f"""data:image/{data_url_filetype};{encoding},{output}"""
+                        
                         #img = " "*decalage+"![" + filename + "](" + data_path + ")"
                         img = " "*decalage+"<img src=\""+ data_path + "\" />"
 

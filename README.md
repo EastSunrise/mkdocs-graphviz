@@ -40,6 +40,8 @@ markdown_extensions:
     - mkdocs_graphviz:
         color: 999999            # or any other HTML color WITHOUT the '#' sign
         bgcolor: none            # or any other HTML color WITHOUT the '#' sign
+        graph_color: 999999      # or any other HTML color WITHOUT the '#' sign
+        graph_fontcolor: 999999  # or any other HTML color WITHOUT the '#' sign
         node_color: 999999       # or any other HTML color WITHOUT the '#' sign
         node_fontcolor: 999999   # or any other HTML color WITHOUT the '#' sign
         edge_color: 999999       # or any other HTML color WITHOUT the '#' sign
@@ -58,6 +60,8 @@ Where:
 * `bgcolor` (default `none`) sets :
     * the background color of the graph (HTML FORMAT WITHOUT THE '#' SIGN)
     * sets the graph to be transparent (`bgcolor: none`)
+* `graph_color` (default `999999`) sets the color of all Subgraphs/Clusters Roundings (HTML FORMAT WITHOUT THE '#' SIGN)
+* `graph_fontcolor` (default `999999`) sets the color of all Subgraphs/Clusters Titles (HTML FORMAT WITHOUT THE '#' SIGN)
 * `node_color` (default `999999`) sets the color of all Nodes (HTML FORMAT WITHOUT THE '#' SIGN)
 * `node_fontcolor` (default `999999`) sets the color of all Texts inside Nodes (HTML FORMAT WITHOUT THE '#' SIGN)
 * `edge_color` (default `999999`) sets the color of all Edges (HTML FORMAT WITHOUT THE '#' SIGN)
