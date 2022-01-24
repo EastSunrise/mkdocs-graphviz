@@ -2,7 +2,7 @@ import os
 import sys
 from setuptools import setup
 
-VERSION = '1.2'
+VERSION = '1.3.3'
 
 if sys.argv[-1] == 'publish':
     if os.system("pip freeze | grep wheel"):
@@ -60,6 +60,7 @@ If you use python 2, please use the original extension instead.""",
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
         'Operating System :: OS Independent',
         'Operating System :: POSIX :: Linux',
         'Operating System :: MacOS :: MacOS X',
