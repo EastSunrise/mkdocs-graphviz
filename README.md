@@ -29,7 +29,11 @@ stanza to `mkdocs.yml`:
 ```yaml
 markdown_extensions:
     - mkdocs_graphviz
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs_graphviz.js
 ```
+
 
 ## Options
 
@@ -38,20 +42,23 @@ markdown_extensions:
 ```yaml
 markdown_extensions:
     - mkdocs_graphviz:
-        color: 999999            # or any other HTML color WITHOUT the '#' sign
-        bgcolor: none            # or any other HTML color WITHOUT the '#' sign
-        graph_color: 999999      # or any other HTML color WITHOUT the '#' sign
-        graph_fontcolor: 999999  # or any other HTML color WITHOUT the '#' sign
-        node_color: 999999       # or any other HTML color WITHOUT the '#' sign
-        node_fontcolor: 999999   # or any other HTML color WITHOUT the '#' sign
-        edge_color: 999999       # or any other HTML color WITHOUT the '#' sign
-        edge_fontcolor: 999999   # or any other HTML color WITHOUT the '#' sign
-
+        ligthcolor: 000000       # HTML Colors Names or any other any other HTML color WITHOUT the '#' sign
+        darkcolor: FFFFFF        # HTML Colors Names or any other any other HTML color WITHOUT the '#' sign
+        color: 789ABC            # HTML Colors Names or any other HTML color WITHOUT the '#' sign
+        bgcolor: none            # HTML Colors Names or any other HTML color WITHOUT the '#' sign
+        graph_color: 789ABC      # HTML Colors Names or any other HTML color WITHOUT the '#' sign
+        graph_fontcolor: 789ABC  # HTML Colors Names or any other HTML color WITHOUT the '#' sign
+        node_color: 789ABC       # HTML Colors Names or any other HTML color WITHOUT the '#' sign
+        node_fontcolor: 789ABC   # HTML Colors Names or any other HTML color WITHOUT the '#' sign
+        edge_color: 789ABC       # HTML Colors Names or any other HTML color WITHOUT the '#' sign
+        edge_fontcolor: 789ABC   # HTML Colors Names or any other HTML color WITHOUT the '#' sign
 ```
 
 Where:
 
-* `color` (default `999999` to be an *average* for dark and light modes in mkdocs) will modify **ALL** the following colors in just one parameter:
+* `ligthcolor` (default `000000`) is the **default color of the graph (nodes and edges) in Light Theme** in Mkdocs
+* `darkcolor` (default `FFFFFF`) is the **default color of the graph (nodes and edges) in Light Theme** in Mkdocs
+* `color` (default `789ABC` is a *blueshish average* which modifies **ALL** the following colors **IN BOTH THEMES (Light and Dark)** in just one parameter:
     * All Nodes
     * All Texts inside Nodes
     * All Edges
@@ -60,17 +67,25 @@ Where:
 * `bgcolor` (default `none`) sets :
     * the background color of the graph (HTML FORMAT WITHOUT THE '#' SIGN)
     * sets the graph to be transparent (`bgcolor: none`)
-* `graph_color` (default `999999`) sets the color of all Subgraphs/Clusters Roundings (HTML FORMAT WITHOUT THE '#' SIGN)
-* `graph_fontcolor` (default `999999`) sets the color of all Subgraphs/Clusters Titles (HTML FORMAT WITHOUT THE '#' SIGN)
-* `node_color` (default `999999`) sets the color of all Nodes (HTML FORMAT WITHOUT THE '#' SIGN)
-* `node_fontcolor` (default `999999`) sets the color of all Texts inside Nodes (HTML FORMAT WITHOUT THE '#' SIGN)
-* `edge_color` (default `999999`) sets the color of all Edges (HTML FORMAT WITHOUT THE '#' SIGN)
-* `edge_fontcolor` (default `999999`) sets the color of all Labels aside Edges (HTML FORMAT WITHOUT THE '#' SIGN)
+* `graph_color` (default `789ABC`) sets the color of all Subgraphs/Clusters Roundings (HTML Standard Names or HTML Hexadecimal FORMAT WITHOUT THE '#' SIGN)
+* `graph_fontcolor` (default `789ABC`) sets the color of all Subgraphs/Clusters Titles (HTML Standard Names or HTML Hexadecimal FORMAT WITHOUT THE '#' SIGN)
+* `node_color` (default `789ABC`) sets the color of all Nodes (HTML Standard Names or HTML Hexadecimal FORMAT WITHOUT THE '#' SIGN)
+* `node_fontcolor` (default `789ABC`) sets the color of all Texts inside Nodes (HTML Standard Names or HTML Hexadecimal FORMAT WITHOUT THE '#' SIGN)
+* `edge_color` (default `789ABC`) sets the color of all Edges (HTML Standard Names or HTML Hexadecimal FORMAT WITHOUT THE '#' SIGN)
+* `edge_fontcolor` (default `789ABC`) sets the color of all Labels aside Edges (HTML Standard Names or HTML Hexadecimal FORMAT WITHOUT THE '#' SIGN)
 
-## Mixing Options
+## Color Codes
+
+Color Codes can be :
+
+* a **standard HTML Color Name** as in [this W3C page](https://www.w3schools.com/tags/ref_colornames.asp) (All Caps Allowed)
+* an **HTML HEXADÉCIMAL COLOR WITHOUT THE # SIGN**
+
+## Mixing & Conflicting Options
 
 * It is possible to define a general color of the graph with the `color` option, and then overwrite some of the values with the other options (you choose)
 * Colors defined with the options can always be overwritten as a **per Node basis**, or a **per Edge basis** directly inside of the graphviz/dot syntax
+* `color` option takes precedence over `lightcolor` and `darkcolor` options, but not over other options
 
 # Usage
 
@@ -111,9 +126,20 @@ or with PNG:
 
 **Supported Graphviz commands: dot, neato, fdp, sfdp, twopi, circo.**
 
+Other examples in these pages:
+
+* Trees : https://eskool.gitlab.io/tnsi/donnees/arbres/quelconques/
+* Graphs : https://eskool.gitlab.io/tnsi/donnees/graphes/definitions/
+
 # CSS / JS Classes
 
-Each graph has both a `dot` and a `graphviz` class, wich can be customized after rendering (as an image) via CSS / JS.
+* Each graph has both a `dot` and a `graphviz` class in the `<svg>` tag, wich can be used for further customization via CSS / JS.
+* Note that Javascript rod2ik's cdn `mkdocs_graphvis.js` **MUST BE SET** in `mkdocs.yml` for `lightcolor` and `darkcolor` options to be functionnal. All the other functionnalities don't need this extra Javascript.
+
+```yaml
+extra_javascript:
+  - https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs_graphviz.js
+```
 
 # Credits
 
