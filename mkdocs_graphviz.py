@@ -47,7 +47,7 @@ import re
 import markdown
 import subprocess
 import base64
-import matplotlib
+# import matplotlib
 
 # Global vars
 BLOCK_RE_GRAVE_ACCENT = re.compile(
