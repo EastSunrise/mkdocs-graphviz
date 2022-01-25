@@ -2,7 +2,7 @@ import os
 import sys
 from setuptools import setup
 
-VERSION = '1.3.3'
+VERSION = '1.4'
 
 if sys.argv[-1] == 'publish':
     if os.system("pip freeze | grep wheel"):
@@ -28,6 +28,11 @@ setup(
     description="Render Graphviz graphs in Mkdocs, as inline SVGs and PNGs, directly from your Markdown (python3 version)",
     long_description_content_type="text/markdown",
     long_description="""Project Page : [rodrigo.schwencke/mkdocs-graphviz](https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz)
+
+Some examples in these pages:
+
+* Trees : https://eskool.gitlab.io/tnsi/donnees/arbres/quelconques/
+* Graphs : https://eskool.gitlab.io/tnsi/donnees/graphes/definitions/
 
 This is a continuation of the great initial job of :
 
