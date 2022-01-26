@@ -60,37 +60,37 @@ extra_javascript:
 ```yaml
 markdown_extensions:
     - mkdocs_graphviz:
-        light_theme: 000000      # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
-        dark_theme: FFFFFF       # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
-        color: 789ABC            # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
-        bgcolor: none            # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
-        graph_color: 789ABC      # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
-        graph_fontcolor: 789ABC  # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
-        node_color: 789ABC       # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
-        node_fontcolor: 789ABC   # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
-        edge_color: 789ABC       # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
-        edge_fontcolor: 789ABC   # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
+        light_theme: 000000      # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+        dark_theme: FFFFFF       # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+        color: 789ABC            # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+        bgcolor: none            # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+        graph_color: 789ABC      # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+        graph_fontcolor: 789ABC  # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+        node_color: 789ABC       # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+        node_fontcolor: 789ABC   # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+        edge_color: 789ABC       # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+        edge_fontcolor: 789ABC   # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
 ```
 
 Where:
 
 * `light_theme` (default `000000`) is the **default color of the graph (nodes and edges) in Light Theme** in Mkdocs
 * `dark_theme` (default `FFFFFF`) is the **default color of the graph (nodes and edges) in Dark Theme** in Mkdocs
-* `color` (default `789ABC` is a *blueshish average* which modifies **ALL** the following colors **IN BOTH THEMES (Light and Dark)** in just one parameter:
+* `color` (default `789ABC`) is a color (HTML Name or HTML Hexa code WITHOUT the `#` sign) that modifies **ALL** the following colors **IN BOTH THEMES (Light and Dark)** in just one parameter:
     * All Nodes
     * All Texts inside Nodes
     * All Edges
     * All Labels aside Edges
     FORMAT
 * `bgcolor` (default `none`) sets :
-    * the background color of the graph HTML Standard (HTML Standard Name or HTML Hexa color code WITHOUT THE '#' SIGN), or
+    * the background color of the graph HTML Standard (HTML Standard Name or HTML Hexa color code WITHOUT THE `#` SIGN), or
     * sets the background color of the graph to be transparent (`bgcolor: none`)
-* `graph_color` (default `789ABC`) sets the color of all Subgraphs/Clusters Roundings (HTML Standard Names or HTML Hexa color code WITHOUT THE '#' SIGN)
-* `graph_fontcolor` (default `789ABC`) sets the color of all Subgraphs/Clusters Titles (HTML Standard Names or HTML Hexa color code WITHOUT THE '#' SIGN)
-* `node_color` (default `789ABC`) sets the color of all Nodes (HTML Standard Names or HTML Hexa color code WITHOUT THE '#' SIGN)
-* `node_fontcolor` (default `789ABC`) sets the color of all Texts inside Nodes (HTML Standard Names or HTML Hexa color code WITHOUT THE '#' SIGN)
-* `edge_color` (default `789ABC`) sets the color of all Edges (HTML Standard Names or HTML Hexa color code WITHOUT THE '#' SIGN)
-* `edge_fontcolor` (default `789ABC`) sets the color of all Labels aside Edges (HTML Standard Names or HTML Hexa color code WITHOUT THE '#' SIGN)
+* `graph_color` (default `789ABC`) sets the color of all Subgraphs/Clusters Roundings (HTML Standard Names or HTML Hexa color code WITHOUT THE `#` SIGN)
+* `graph_fontcolor` (default `789ABC`) sets the color of all Subgraphs/Clusters Titles (HTML Standard Names or HTML Hexa color code WITHOUT THE `#` SIGN)
+* `node_color` (default `789ABC`) sets the color of all Nodes (HTML Standard Names or HTML Hexa color code WITHOUT THE `#` SIGN)
+* `node_fontcolor` (default `789ABC`) sets the color of all Texts inside Nodes (HTML Standard Names or HTML Hexa color code WITHOUT THE `#` SIGN)
+* `edge_color` (default `789ABC`) sets the color of all Edges (HTML Standard Names or HTML Hexa color code WITHOUT THE `#` SIGN)
+* `edge_fontcolor` (default `789ABC`) sets the color of all Labels aside Edges (HTML Standard Names or HTML Hexa color code WITHOUT THE `#` SIGN)
 
 ## Color Codes
 
