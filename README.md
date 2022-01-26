@@ -1,15 +1,26 @@
-mkdocs-graphviz Extension for mkdocs
-=======================================
+# What is mkdocs-graphviz?
 
-This project is one of several other mkdocs-related extensions/additionnal functionnalities, which can be seen at **[mkhack3rs](https://eskool.gitlab.io/mkhack3rs/)**'s site.  
-Please have a look at our site if you are interested in one-line-install additionnal functionnalities for mkdocs :
+**mkdocs-graphviz** project is a configurable **Python Markdown extension for Mkdocs**, that renders inline **graphviz** graphs to inline SVGs or PNGs out of the box ! Definitions of the graph are made in **dot language** (directly in your markdown file) :
 
-* **mkhack3rs** : https://eskool.gitlab.io/mkhack3rs/
+* **mkdocs-graphviz** adapts natively to Mkdocs's **Light and Dark themes**
+* **mkdocs-graphviz** supports native **HTML color Names** AND **HTML Hexa Color codes**
+* **mkdocs-graphviz** colors are **configurable via options** in the `mkdocs.yml` config file. Different colors can be easily set: 
 
-**mkdocs-graphviz** project is a Python Markdown extension for Mkdocs, that renders inline Graphviz definitions with inline SVGs or PNGs out of the box !
+    * **Subgraphs / Clusters** roundings
+    * **Nodes** (both borders and fonts, separately), 
+    * **Edges** (both borders and fonts, separately), 
+    * all-in-one colors via the `color` option
+    * Different colors for the **Light and Dark Themes** can be set
 
 Why render the graphs inline? No configuration! Works with any
 Python-Markdown-based static site generator, such as [MkDocs](http://www.mkdocs.org/), [Pelican](http://blog.getpelican.com/), and [Nikola](https://getnikola.com/) out of the box without configuring an output directory.
+
+# mkdocs-graphviz is part of mkhack3rs
+
+**mkdocs-graphviz** is one of several other one-line-install additional functionnalities for mkdocs.  
+Please have a look at *mkhack3rs* site if interested :
+
+*  **[mkhack3rs](https://eskool.gitlab.io/mkhack3rs/)**'s site.  
 
 # Installation
 
@@ -128,10 +139,13 @@ or with PNG:
 
 **Supported Graphviz commands: dot, neato, fdp, sfdp, twopi, circo.**
 
+# Examples
+
 Other examples in these pages:
 
+* Trees & Graphs : https://eskool.gitlab.io/mkhack3rs/graphviz/examples/
 * Trees : https://eskool.gitlab.io/tnsi/donnees/arbres/quelconques/
-* Graphs : https://eskool.gitlab.io/tnsi/donnees/graphes/definitions/
+* Graphs : https://eskool.gitlab.io/tnsi/donnees/graphes/definitions
 
 # CSS / JS Classes
 
