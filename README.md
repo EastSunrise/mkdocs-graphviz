@@ -50,7 +50,6 @@ extra_javascript:
   - https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs-graphviz.js
 ```
 
-
 ## Options
 
 **Optionnally**, use any (or a combination) of the following options with all colors being written as:
