@@ -41,8 +41,10 @@ extra_javascript:
 
 ## Options
 
-**Optionnally**, use any (or a combination) of the following options with all colors being written as **HTML COLORS WITHOUT THE # SIGN** (the default values are written hereafter):
+**Optionnally**, use any (or a combination) of the following options with all colors being written as:
 
+* a **standard HTML Color Name** as in [this W3C page](https://www.w3schools.com/tags/ref_colornames.asp) (All Caps Allowed)
+* an **HTML HEXADECIMAL COLOR, but WITHOUT THE # SIGN**
 ```yaml
 markdown_extensions:
     - mkdocs_graphviz:
@@ -83,7 +85,7 @@ Where:
 Color Codes can be :
 
 * a **standard HTML Color Name** as in [this W3C page](https://www.w3schools.com/tags/ref_colornames.asp) (All Caps Allowed)
-* an **HTML HEXADÉCIMAL COLOR WITHOUT THE # SIGN**
+* an **HTML HEXADECIMAL COLOR, WITHOUT THE # SIGN**
 
 ## Mixing & Conflicting Options
 
