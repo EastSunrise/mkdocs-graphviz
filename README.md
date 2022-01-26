@@ -149,12 +149,13 @@ extra_javascript:
 
 # Credits
 
+* Rodrigo Schwencke for all newer credits : [rodrigo.schwencke/mkdocs-graphviz](https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz)
+
 Initially Forked from:
 
 * Cesare Morel [cesaremorel/markdown-inline-graphviz](https://github.com/cesaremorel/markdown-inline-graphviz), and before him,
-* Steffen Prince in [sprin/markdown-inline-graphviz](https://github.com/sprin/markdown-inline-graphviz), 
-* Initially inspired by Jawher Moussa [jawher/markdown-dot](https://github.com/jawher/markdown-dot) which renders the dot graph to a file instead of inline.
-* All Newer Credits by Rodrigo Schwencke : [rodrigo.schwencke/mkdocs-graphviz](https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz)
+* Steffen Prince in [sprin/markdown-inline-graphviz](https://github.com/sprin/markdown-inline-graphviz), which was nitially inspired by
+* Jawher Moussa [jawher/markdown-dot](https://github.com/jawher/markdown-dot) which renders the dot graph to a file instead of inline.
 
 # License
 
