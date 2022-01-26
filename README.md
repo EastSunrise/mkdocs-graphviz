@@ -83,14 +83,14 @@ Where:
     * All Labels aside Edges
     FORMAT
 * `bgcolor` (default `none`) sets :
-    * the background color of the graph HTML Standard (HTML Standard Name or HTML Hexa color code WITHOUT THE `#` SIGN), or
-    * sets the background color of the graph to be transparent (`bgcolor: none`)
-* `graph_color` (default `789ABC`) sets the color of all Subgraphs/Clusters Roundings (HTML Standard Names or HTML Hexa color code WITHOUT THE `#` SIGN)
-* `graph_fontcolor` (default `789ABC`) sets the color of all Subgraphs/Clusters Titles (HTML Standard Names or HTML Hexa color code WITHOUT THE `#` SIGN)
-* `node_color` (default `789ABC`) sets the color of all Nodes (HTML Standard Names or HTML Hexa color code WITHOUT THE `#` SIGN)
-* `node_fontcolor` (default `789ABC`) sets the color of all Texts inside Nodes (HTML Standard Names or HTML Hexa color code WITHOUT THE `#` SIGN)
-* `edge_color` (default `789ABC`) sets the color of all Edges (HTML Standard Names or HTML Hexa color code WITHOUT THE `#` SIGN)
-* `edge_fontcolor` (default `789ABC`) sets the color of all Labels aside Edges (HTML Standard Names or HTML Hexa color code WITHOUT THE `#` SIGN)
+    * the background color to be transparent (by default, which is equivalent to `bgcolor: none`), or
+    * the background color of the graph
+* `graph_color` (default `789ABC`) sets the color of all Subgraphs/Clusters Roundings
+* `graph_fontcolor` (default `789ABC`) sets the color of all Subgraphs/Clusters Titles 
+* `node_color` (default `789ABC`) sets the color of all Nodes
+* `node_fontcolor` (default `789ABC`) sets the color of all Texts inside Nodes
+* `edge_color` (default `789ABC`) sets the color of all Edges
+* `edge_fontcolor` (default `789ABC`) sets the color of all Labels aside Edges
 
 ## Color Codes
 
