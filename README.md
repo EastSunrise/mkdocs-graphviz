@@ -25,11 +25,15 @@ Please have a look at *mkhack3rs* site if interested :
 
 # Installation
 
+**mkdocs-graphviz** is a Python package, installable with pip :
+
 `$ pip install mkdocs-graphviz`
 
 or upgrade via pip (if already installed)
 
 `$ pip install --upgrade mkdocs-graphviz`
+
+Project's page in PyPI is: https://pypi.org/project/mkdocs-graphviz/
 
 # Configuration
 
