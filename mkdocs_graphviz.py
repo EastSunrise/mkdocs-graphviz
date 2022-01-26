@@ -64,13 +64,13 @@ GRAPHVIZ_COMMAND = 0
 SUPPORTED_COMMAMDS = ['dot', 'neato', 'fdp', 'sfdp', 'twopi', 'circo']
 
 # DEFAULT COLOR OF NODES, EDGES AND FONT TEXTS
-DEFAULT_COLOR = '789abc'
+DEFAULT_COLOR = '789ABC'
 DEFAULT_LIGHTTHEME_COLOR = '000000'
-DEFAULT_DARKTHEME_COLOR = 'ffffff'
+DEFAULT_DARKTHEME_COLOR = 'FFFFFF'
 
-# DEFAULT_COLOR = DEFAULT_COLOR.lower()
-# DEFAULT_LIGHTTHEME_COLOR = DEFAULT_LIGHTTHEME_COLOR.lower()
-# DEFAULT_DARKTHEME_COLOR = DEFAULT_DARKTHEME_COLOR.lower()
+DEFAULT_COLOR = DEFAULT_COLOR.lower()
+DEFAULT_LIGHTTHEME_COLOR = DEFAULT_LIGHTTHEME_COLOR.lower()
+DEFAULT_DARKTHEME_COLOR = DEFAULT_DARKTHEME_COLOR.lower()
 
 # HTML_COLORS = {}
 # for name, hex in matplotlib.colors.cnames.items():
@@ -230,8 +230,8 @@ class MkdocsGraphvizExtension(markdown.Extension):
     def __init__(self, **kwargs):
         self.config = {
             'color' :           [DEFAULT_COLOR, 'Default color for Nodes & Edges'],
-            'light_theme' :      [DEFAULT_LIGHTTHEME_COLOR, 'Default Light Color for Nodes & Edges'],
-            'dark_theme' :       [DEFAULT_DARKTHEME_COLOR, 'Default Dark color for Nodes & Edges'],
+            'light_theme' :     [DEFAULT_LIGHTTHEME_COLOR, 'Default Light Color for Nodes & Edges'],
+            'dark_theme' :      [DEFAULT_DARKTHEME_COLOR, 'Default Dark color for Nodes & Edges'],
             'bgcolor' :         ['none', 'Default bgcolor for Graph'],
             'graph_color' :     [DEFAULT_COLOR, 'Default color for Graphs & Subgraphs/Clusters Roundings'], 
             'graph_fontcolor' : [DEFAULT_COLOR, 'Default color for Graphs & Subgraphs/Clusters Titles'], 

@@ -2,7 +2,7 @@ import os
 import sys
 from setuptools import setup
 
-VERSION = '1.4.3'
+VERSION = '1.4.4'
 
 if sys.argv[-1] == 'publish':
     if os.system("pip freeze | grep wheel"):
@@ -34,7 +34,8 @@ Some examples in these pages:
 * Trees : https://eskool.gitlab.io/tnsi/donnees/arbres/quelconques/
 * Graphs : https://eskool.gitlab.io/tnsi/donnees/graphes/definitions/
 
-This project is one of others mkdocs-related projects. Please have a complete look at this page for a more complete view:
+This project is one of others mkdocs-related projects.  
+Please have a look at this page for a more complete view of all projects:
 
 * https://eskool.gitlab.io/mkhack3rs/
 
@@ -51,8 +52,8 @@ If you use python 2, please use the original extension instead.
 
 Licences:
 
-* The older parts are MIT
-* All newer parts (from Rodrigo Schwencke) are GPLv3+""",
+* All newer parts (Rodrigo Schwencke) are [GPLv3+](https://opensource.org/licenses/GPL-3.0)
+* Older parts (Cesare Morel, Steffen Prince, Jawher Moussa) are [MIT License](http://www.opensource.org/licenses/mit-license.php)""",
     license="GPLv3+",
     url="https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz.git",
     classifiers=[
@@ -64,7 +65,7 @@ Licences:
         'Intended Audience :: Developers',
         'Topic :: Documentation',
         'Topic :: Text Processing',
-        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+        'License :: OSI Approved :: GNU General Public License v3 or later',
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
         'Programming Language :: Python :: 3',
