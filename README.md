@@ -4,7 +4,8 @@
 
 * **mkdocs-graphviz** adapts natively to Mkdocs's **Light and Dark themes**
 * **mkdocs-graphviz** supports native **HTML color Names** AND **HTML Hexa Color codes**
-* **mkdocs-graphviz** colors are **configurable via options** in the `mkdocs.yml` config file. Different colors can be easily set: 
+* **mkdocs-graphviz** colors are **configurable via options** in the `mkdocs.yml` config file.  
+Different colors can be easily set for :
 
     * **Subgraphs / Clusters** roundings
     * **Nodes** (both borders and fonts, separately), 
