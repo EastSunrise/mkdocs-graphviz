@@ -6,7 +6,7 @@ Please have a look at our site if you are interested in one-line-install additio
 
 * **mkhack3rs** : https://eskool.gitlab.io/mkhack3rs/
 
-This is a continuation of the great job of (from newer to older):
+**mkdocs-graphviz** project is a continuation of the great job of (from newer to older):
 
 * Rodrigo Schwencke (for all Newer Credits) : [rodrigo.schwencke/mkdocs-graphviz](https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz)
 * Cesare Morel [cesaremorel/markdown-inline-graphviz](https://github.com/cesaremorel/markdown-inline-graphviz),
