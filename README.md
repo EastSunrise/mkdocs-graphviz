@@ -21,7 +21,7 @@ Python-Markdown-based static site generator, such as [MkDocs](http://www.mkdocs.
 **mkdocs-graphviz** is one of several other one-line-install additional functionnalities for mkdocs.  
 Please have a look at *mkhack3rs* site if interested :
 
-*  **[mkhack3rs](https://eskool.gitlab.io/mkhack3rs/)**'s site.  
+*  **[mkhack3rs](https://eskool.gitlab.io/mkhack3rs/)**: https://eskool.gitlab.io/mkhack3rs/   
 
 # Installation
 
