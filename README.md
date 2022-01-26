@@ -63,7 +63,7 @@ markdown_extensions:
 Where:
 
 * `light_theme` (default `000000`) is the **default color of the graph (nodes and edges) in Light Theme** in Mkdocs
-* `dark_theme` (default `FFFFFF`) is the **default color of the graph (nodes and edges) in Light Theme** in Mkdocs
+* `dark_theme` (default `FFFFFF`) is the **default color of the graph (nodes and edges) in Dark Theme** in Mkdocs
 * `color` (default `789ABC` is a *blueshish average* which modifies **ALL** the following colors **IN BOTH THEMES (Light and Dark)** in just one parameter:
     * All Nodes
     * All Texts inside Nodes
