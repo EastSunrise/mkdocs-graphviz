@@ -6,16 +6,7 @@ Please have a look at our site if you are interested in one-line-install additio
 
 * **mkhack3rs** : https://eskool.gitlab.io/mkhack3rs/
 
-**mkdocs-graphviz** project is a continuation of the great job of (from newer to older):
-
-* Rodrigo Schwencke (for all Newer Credits) : [rodrigo.schwencke/mkdocs-graphviz](https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz)
-* Cesare Morel [cesaremorel/markdown-inline-graphviz](https://github.com/cesaremorel/markdown-inline-graphviz),
-* Steffen Prince in [sprin/markdown-inline-graphviz](https://github.com/sprin/markdown-inline-graphviz), 
-* Initially inspired by Jawher Moussa [jawher/markdown-dot](https://github.com/jawher/markdown-dot)
-
-in order to get it work with pip (for python 3). If you use python 2, please use the original extension instead.
-
-A Python Markdown extension for Mkdocs, that renders inline Graphviz definitions with inline SVGs or PNGs out of the box !
+**mkdocs-graphviz** project is a Python Markdown extension for Mkdocs, that renders inline Graphviz definitions with inline SVGs or PNGs out of the box !
 
 Why render the graphs inline? No configuration! Works with any
 Python-Markdown-based static site generator, such as [MkDocs](http://www.mkdocs.org/), [Pelican](http://blog.getpelican.com/), and [Nikola](https://getnikola.com/) out of the box without configuring an output directory.
