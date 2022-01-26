@@ -11,7 +11,7 @@ Different colors can be easily set for :
     * **Nodes** (both borders and fonts, separately), 
     * **Edges** (both borders and fonts, separately), 
     * all-in-one colors via the `color` option
-    * Different colors for Mkdocs's **Light and Dark Themes** can be set
+    * Different colors for Mkdocs's **Light** & **Dark Themes** can be set
 
 Why render the graphs inline? No configuration! Works with any
 Python-Markdown-based static site generator, such as [MkDocs](http://www.mkdocs.org/), [Pelican](http://blog.getpelican.com/), and [Nikola](https://getnikola.com/) out of the box without configuring an output directory.
