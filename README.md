@@ -1,6 +1,6 @@
 # What is mkdocs-graphviz?
 
-**mkdocs-graphviz** project is a configurable **Python Markdown extension for Mkdocs**, that renders inline **graphviz** graphs to inline SVGs or PNGs out of the box ! Definitions of the graph are made in **dot language** (directly in your markdown file) :
+**mkdocs-graphviz** is a configurable **Python Markdown extension for Mkdocs**, that renders inline **graphviz** graphs to inline SVGs or PNGs out of the box ! Definitions of the graph are made in **dot language** (directly in your markdown file) :
 
 * **mkdocs-graphviz** adapts natively to Mkdocs's **Light and Dark themes**
 * **mkdocs-graphviz** supports native **HTML color Names** AND **HTML Hexa Color codes**
