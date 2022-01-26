@@ -35,7 +35,7 @@ markdown_extensions:
     - mkdocs_graphviz
 
 extra_javascript:
-  - https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs_graphviz.js
+  - https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs-graphviz.js
 ```
 
 
@@ -144,7 +144,7 @@ Other examples in these pages:
 
 ```yaml
 extra_javascript:
-  - https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs_graphviz.js
+  - https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs-graphviz.js
 ```
 
 # Credits
