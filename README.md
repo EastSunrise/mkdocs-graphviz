@@ -1,6 +1,8 @@
 Mkdocs Graphviz (for Python 3)
 =======================================
 
+This project is one of several other mkdocs-related extensions/functionnalities, which can be seen at **[mkhack3rs:https://eskool.gitlab.io/mkhack3rs/](https://eskool.gitlab.io/mkhack3rs/)**'s site. Please have a look at it if you are interested in one-line-install functionnalities for mkdocs.
+
 This is a continuation of the great job of (from newer to older):
 
 * Rodrigo Schwencke (for all Newer Credits) : [rodrigo.schwencke/mkdocs-graphviz](https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz)
