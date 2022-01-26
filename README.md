@@ -46,22 +46,22 @@ extra_javascript:
 ```yaml
 markdown_extensions:
     - mkdocs_graphviz:
-        ligthcolor: 000000       # HTML Colors Names or any other any other HTML color WITHOUT the '#' sign
-        darkcolor: FFFFFF        # HTML Colors Names or any other any other HTML color WITHOUT the '#' sign
-        color: 789ABC            # HTML Colors Names or any other HTML color WITHOUT the '#' sign
-        bgcolor: none            # HTML Colors Names or any other HTML color WITHOUT the '#' sign
-        graph_color: 789ABC      # HTML Colors Names or any other HTML color WITHOUT the '#' sign
-        graph_fontcolor: 789ABC  # HTML Colors Names or any other HTML color WITHOUT the '#' sign
-        node_color: 789ABC       # HTML Colors Names or any other HTML color WITHOUT the '#' sign
-        node_fontcolor: 789ABC   # HTML Colors Names or any other HTML color WITHOUT the '#' sign
-        edge_color: 789ABC       # HTML Colors Names or any other HTML color WITHOUT the '#' sign
-        edge_fontcolor: 789ABC   # HTML Colors Names or any other HTML color WITHOUT the '#' sign
+        light_theme: 000000      # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
+        dark_theme: FFFFFF       # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
+        color: 789ABC            # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
+        bgcolor: none            # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
+        graph_color: 789ABC      # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
+        graph_fontcolor: 789ABC  # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
+        node_color: 789ABC       # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
+        node_fontcolor: 789ABC   # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
+        edge_color: 789ABC       # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
+        edge_fontcolor: 789ABC   # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the '#' sign
 ```
 
 Where:
 
-* `ligthcolor` (default `000000`) is the **default color of the graph (nodes and edges) in Light Theme** in Mkdocs
-* `darkcolor` (default `FFFFFF`) is the **default color of the graph (nodes and edges) in Light Theme** in Mkdocs
+* `light_theme` (default `000000`) is the **default color of the graph (nodes and edges) in Light Theme** in Mkdocs
+* `dark_theme` (default `FFFFFF`) is the **default color of the graph (nodes and edges) in Light Theme** in Mkdocs
 * `color` (default `789ABC` is a *blueshish average* which modifies **ALL** the following colors **IN BOTH THEMES (Light and Dark)** in just one parameter:
     * All Nodes
     * All Texts inside Nodes
@@ -89,7 +89,7 @@ Color Codes can be :
 
 * It is possible to define a general color of the graph with the `color` option, and then overwrite some of the values with the other options (you choose)
 * Colors defined with the options can always be overwritten as a **per Node basis**, or a **per Edge basis** directly inside of the graphviz/dot syntax
-* `color` option takes precedence over `lightcolor` and `darkcolor` options, but not over other options
+* `color` option takes precedence over `light_theme` and `dark_theme` options, but not over other options
 
 # Usage
 
@@ -138,7 +138,7 @@ Other examples in these pages:
 # CSS / JS Classes
 
 * Each graph has both a `dot` and a `graphviz` class in the `<svg>` tag, wich can be used for further customization via CSS / JS.
-* Note that Javascript rod2ik's cdn `mkdocs_graphvis.js` **MUST BE SET** in `mkdocs.yml` for `lightcolor` and `darkcolor` options to be functionnal. All the other functionnalities don't need this extra Javascript.
+* Note that Javascript rod2ik's cdn `mkdocs_graphvis.js` **MUST BE SET** in `mkdocs.yml` for `light_theme` and `dark_theme` options to be functionnal. All the other functionnalities don't need this extra Javascript.
 
 ```yaml
 extra_javascript:

@@ -63,10 +63,14 @@ GRAPHVIZ_COMMAND = 0
 # Command whitelist
 SUPPORTED_COMMAMDS = ['dot', 'neato', 'fdp', 'sfdp', 'twopi', 'circo']
 
-# DEFAULT COLOR OF NODES, EDGES AND FONT TEXTS (MUST BE LOWER CASES)
+# DEFAULT COLOR OF NODES, EDGES AND FONT TEXTS
 DEFAULT_COLOR = '789abc'
 DEFAULT_LIGHTTHEME_COLOR = '000000'
 DEFAULT_DARKTHEME_COLOR = 'ffffff'
+
+# DEFAULT_COLOR = DEFAULT_COLOR.lower()
+# DEFAULT_LIGHTTHEME_COLOR = DEFAULT_LIGHTTHEME_COLOR.lower()
+# DEFAULT_DARKTHEME_COLOR = DEFAULT_DARKTHEME_COLOR.lower()
 
 # HTML_COLORS = {}
 # for name, hex in matplotlib.colors.cnames.items():
@@ -226,8 +230,8 @@ class MkdocsGraphvizExtension(markdown.Extension):
     def __init__(self, **kwargs):
         self.config = {
             'color' :           [DEFAULT_COLOR, 'Default color for Nodes & Edges'],
-            'lightcolor' :      [DEFAULT_LIGHTTHEME_COLOR, 'Default Light Color for Nodes & Edges'],
-            'darkcolor' :       [DEFAULT_DARKTHEME_COLOR, 'Default Dark color for Nodes & Edges'],
+            'light_theme' :      [DEFAULT_LIGHTTHEME_COLOR, 'Default Light Color for Nodes & Edges'],
+            'dark_theme' :       [DEFAULT_DARKTHEME_COLOR, 'Default Dark color for Nodes & Edges'],
             'bgcolor' :         ['none', 'Default bgcolor for Graph'],
             'graph_color' :     [DEFAULT_COLOR, 'Default color for Graphs & Subgraphs/Clusters Roundings'], 
             'graph_fontcolor' : [DEFAULT_COLOR, 'Default color for Graphs & Subgraphs/Clusters Titles'], 
@@ -251,18 +255,24 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
     def __init__(self, md, config):
         super(MkdocsGraphvizPreprocessor, self).__init__(md)
         self.config = config
+        self.convert2string(config)
         self.set_html_colors()
+
+    def convert2string(self, config):
+        for colorKey in config.keys():
+            self.config[colorKey][0] = str(self.config[colorKey][0])
 
     def set_html_colors(self):
         colorDict = self.config.keys()
-        for colorKey in self.config.keys():
+        for colorKey in self.config.keys(): # translate config options in lowercase
             self.config[colorKey][0] = self.config[colorKey][0].lower()
+            # print("self.config[colorKey][0]=",self.config[colorKey][0])
         if self.config['color'][0] in HTML_COLORS.keys():
             self.config['color'][0] = HTML_COLORS[self.config['color'][0]]
         else: # SET DEFAULT to #+'color'
             self.config['color'][0] = "#"+self.config['color'][0]
         for colorKey in colorDict:
-            if colorKey in ['color', 'bgcolor', 'lightcolor', 'darkcolor']: # Special Keys
+            if colorKey in ['color', 'bgcolor', 'light_theme', 'dark_theme']: # Special Keys
                 continue
             if self.config[colorKey][0] in HTML_COLORS.keys():
                 self.config[colorKey][0] = HTML_COLORS[self.config[colorKey][0]]
@@ -270,16 +280,15 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
                     self.config[colorKey][0] = "#"+self.config[colorKey][0]
             else: # otherwise set default to 'color' default
                 self.config[colorKey][0] = self.config['color'][0]
-            # print("colorKey=",colorKey,"=",self.config[colorKey][0])
         # SPECIAL KEYS:
-        if self.config['lightcolor'][0] in HTML_COLORS.keys():
-            self.config['lightcolor'][0] = HTML_COLORS[self.config['lightcolor'][0]]
-        else: # SET DEFAULT to 'lightcolor'
-            self.config['lightcolor'][0] = "#"+self.config['lightcolor'][0]
-        if self.config['darkcolor'][0] in HTML_COLORS.keys():
-            self.config['darkcolor'][0] = HTML_COLORS[self.config['darkcolor'][0]]
+        if self.config['light_theme'][0] in HTML_COLORS.keys():
+            self.config['light_theme'][0] = HTML_COLORS[self.config['light_theme'][0]]
+        else: # SET DEFAULT to 'light_theme'
+            self.config['light_theme'][0] = "#"+self.config['light_theme'][0]
+        if self.config['dark_theme'][0] in HTML_COLORS.keys():
+            self.config['dark_theme'][0] = HTML_COLORS[self.config['dark_theme'][0]]
         else:
-            self.config['darkcolor'][0] = "#"+self.config['darkcolor'][0]        
+            self.config['dark_theme'][0] = "#"+self.config['dark_theme'][0]        
         if self.config['bgcolor'][0] in HTML_COLORS.keys():
             self.config['bgcolor'][0] = HTML_COLORS[self.config['bgcolor'][0]]
         elif self.config['bgcolor'][0] != 'None' and self.config['bgcolor'][0] != 'none': 
@@ -313,7 +322,7 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
                 newLines.append(lines[i])
         newLines = newLines[1:]
         newOutput = "\n".join(newLines)
-        xmlHeaders = f"""<span class="graphviz-light-dark" data-library-default="#{DEFAULT_COLOR}" data-default="{self.config['color'][0]}" data-light="{self.config['lightcolor'][0]}" data-dark="{self.config['darkcolor'][0]}"></span>"""
+        xmlHeaders = f"""<span class="graphviz-light-dark" data-library-default="#{DEFAULT_COLOR}" data-default="{self.config['color'][0]}" data-light="{self.config['light_theme'][0]}" data-dark="{self.config['dark_theme'][0]}"></span>"""
         # xmlHeaders += f"""<?xml version="1.0" encoding="UTF-8" standalone="no"?>"""
         # xmlHeaders += f"""<!-- Generated by graphviz {graphvizVersion} -->"""
         newOutput = xmlHeaders + newOutput

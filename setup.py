@@ -2,7 +2,7 @@ import os
 import sys
 from setuptools import setup
 
-VERSION = '1.4.2'
+VERSION = '1.4.3'
 
 if sys.argv[-1] == 'publish':
     if os.system("pip freeze | grep wheel"):
@@ -25,7 +25,7 @@ setup(
     install_requires=['Markdown>=2.3.1'],
     author="Rodrigo Schwencke",
     author_email="dev.hopper@lyceeperier.fr",
-    description="Render Graphviz graphs in Mkdocs, as inline SVGs and PNGs, directly from your Markdown (python3 version)",
+    description="Render Graphviz graphs in Mkdocs, as inline SVGs and PNGs, natively compatible with Mkdocs Light & Dark Themes, directly from your Markdown (python3 version)",
     long_description_content_type="text/markdown",
     long_description="""Project Page : [rodrigo.schwencke/mkdocs-graphviz](https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz)
 
@@ -34,7 +34,11 @@ Some examples in these pages:
 * Trees : https://eskool.gitlab.io/tnsi/donnees/arbres/quelconques/
 * Graphs : https://eskool.gitlab.io/tnsi/donnees/graphes/definitions/
 
-This is a continuation of the great initial job of :
+This project is one of others mkdocs-related projects. Please have a complete look at this page for a more complete view:
+
+* https://eskool.gitlab.io/mkhack3rs/
+
+This project was initially a continuation of the great job of (from newer to older) :
 
 * All newer Credits: [rodrigo.schwencke/mkdocs-graphviz](https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz)
 * Cesare Morel [cesaremorel/markdown-inline-graphviz](https://github.com/cesaremorel/markdown-inline-graphviz), and before him,
@@ -43,8 +47,13 @@ This is a continuation of the great initial job of :
     
 In order to get it work with pip (python3) and mkdocs.
 
-If you use python 2, please use the original extension instead.""",
-    license="MIT",
+If you use python 2, please use the original extension instead.
+
+Licences:
+
+* The older parts are MIT
+* All newer parts (from Rodrigo Schwencke) are GPLv3+""",
+    license="GPLv3+",
     url="https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz.git",
     classifiers=[
         'Development Status :: 5 - Production/Stable',
@@ -66,6 +75,7 @@ If you use python 2, please use the original extension instead.""",
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
         'Operating System :: OS Independent',
         'Operating System :: POSIX :: Linux',
         'Operating System :: MacOS :: MacOS X',
