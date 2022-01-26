@@ -169,7 +169,7 @@ extra_javascript:
 Initially Forked from:
 
 * Cesare Morel [cesaremorel/markdown-inline-graphviz](https://github.com/cesaremorel/markdown-inline-graphviz), and before him,
-* Steffen Prince in [sprin/markdown-inline-graphviz](https://github.com/sprin/markdown-inline-graphviz), which was nitially inspired by
+* Steffen Prince in [sprin/markdown-inline-graphviz](https://github.com/sprin/markdown-inline-graphviz), which was itself initially inspired by
 * Jawher Moussa [jawher/markdown-dot](https://github.com/jawher/markdown-dot) which renders the dot graph to a file instead of inline.
 
 # License
