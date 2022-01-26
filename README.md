@@ -1,33 +1,5 @@
 # What is mkdocs-graphviz?
 
-```dot
-digraph "example-graphviz" {
-     rankdir="LR";
-     graph [fontname="Verdana", fontsize="12"];
-     node [fontname="Verdana", fontsize="12"];
-     edge [fontname="Sans", fontsize="9"];
-
-     sphinx [label="MkDocs", shape="component",
-               URL="https://www.mkdocs.org/",
-               target="_blank"];
-     dot [label="GraphViz", shape="component",
-          URL="https://www.graphviz.org/",
-          target="_blank"];
-     docs [label="Docs (.md)", shape="folder",
-          fillcolor=green, style=filled];
-     svg_file [label="SVG Image", shape="note", fontcolor=white,
-               fillcolor="#3333ff", style=filled];
-     html_files [label="HTML Files", shape="folder",
-          fillcolor=yellow, style=filled];
-
-     docs -> sphinx [label=" parse "];
-     sphinx -> dot [label=" call ", style=dashed, arrowhead=none];
-     dot -> svg_file [label=" draw "];
-     sphinx -> html_files [label=" render "];
-     svg_file -> html_files [style=dashed];
-}
-```
-
 **mkdocs-graphviz** is a configurable **Python Markdown extension for Mkdocs**, that renders inline **graphviz** graphs to inline SVGs or PNGs out of the box ! Definitions of the graph are made in **dot language** (directly in your markdown file) :
 
 * **mkdocs-graphviz** adapts natively to Mkdocs's **Light and Dark themes**
@@ -204,5 +176,3 @@ Initially Forked from:
 
 * All newer parts (Rodrigo Schwencke) are [GPLv3+](https://opensource.org/licenses/GPL-3.0)
 * Older parts (Cesare Morel, Steffen Prince, Jawher Moussa) are [MIT License](http://www.opensource.org/licenses/mit-license.php)
-
-<script src="https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs-graphviz.js"></script>
