@@ -76,7 +76,7 @@ Where:
 
 * `light_theme` (default `000000`) is the **default color of the graph (nodes and edges) in Light Theme** in Mkdocs
 * `dark_theme` (default `FFFFFF`) is the **default color of the graph (nodes and edges) in Dark Theme** in Mkdocs
-* `color` (default `789ABC`) is a color (HTML Name or HTML Hexa code WITHOUT the `#` sign) that modifies **ALL** the following colors **IN BOTH THEMES (Light and Dark)** in just one parameter:
+* `color` (default `789ABC`) is a color option that modifies **ALL** the following colors **IN BOTH THEMES (Light and Dark)** in just one parameter:
     * All Nodes
     * All Texts inside Nodes
     * All Edges
