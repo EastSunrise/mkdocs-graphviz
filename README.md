@@ -156,4 +156,5 @@ All Newer Credits : [rodrigo.schwencke/mkdocs-graphviz](https://gitlab.com/rodri
 
 # License
 
-[MIT License](http://www.opensource.org/licenses/mit-license.php)
+* All newer parts (Rodrigo Schwencke) are [GPLv3+](https://opensource.org/licenses/GPL-3.0)
+* Older parts (not Rodrigo Schwencke) are [MIT License](http://www.opensource.org/licenses/mit-license.php)
