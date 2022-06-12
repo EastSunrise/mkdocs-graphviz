@@ -39,7 +39,7 @@ Project's page in PyPI is: https://pypi.org/project/mkdocs-graphviz/
 
 ## Via Conda
 
-Please have a look at [this github page](https://github.com/conda-forge/mkdocs-graphviz-feedstock) to get more precise instructions for the installation of `mkdocs-graphviz` with **conda** :
+Please have a look at [this github page](https://github.com/conda-forge/mkdocs-graphviz-feedstock) to get more precise instructions for the installation of `mkdocs-graphviz` with **conda**, via the **conda-forge** github channel :
 
 [https://github.com/conda-forge/mkdocs-graphviz-feedstock](https://github.com/conda-forge/mkdocs-graphviz-feedstock)
 
