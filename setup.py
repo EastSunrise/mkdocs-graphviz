@@ -2,7 +2,7 @@ import os
 import sys
 from setuptools import setup
 
-VERSION = '1.4.4'
+VERSION = '1.4.5'
 
 if sys.argv[-1] == 'publish':
     if os.system("pip freeze | grep wheel"):
@@ -24,7 +24,7 @@ setup(
     py_modules=["mkdocs_graphviz"],
     install_requires=['Markdown>=2.3.1'],
     author="Rodrigo Schwencke",
-    author_email="dev.hopper@lyceeperier.fr",
+    author_email="rod2ik.dev@gmail.com",
     description="Render Graphviz graphs in Mkdocs, as inline SVGs and PNGs, natively compatible with Mkdocs Light & Dark Themes, directly from your Markdown (python3 version)",
     long_description_content_type="text/markdown",
     long_description="""Project Page : [rodrigo.schwencke/mkdocs-graphviz](https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz)
@@ -39,7 +39,7 @@ Please have a look at this page for a more complete view of all projects:
 
 * https://eskool.gitlab.io/mkhack3rs/
 
-This project was initially a continuation of the great job of (from newer to older) :
+This project is a collaboration, from newer to older :
 
 * All newer Credits: [rodrigo.schwencke/mkdocs-graphviz](https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz)
 * Cesare Morel [cesaremorel/markdown-inline-graphviz](https://github.com/cesaremorel/markdown-inline-graphviz), and before him,

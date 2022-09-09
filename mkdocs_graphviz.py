@@ -61,7 +61,7 @@ BLOCK_RE_GRAVE_ACCENT_DOT = re.compile(
 GRAPHVIZ_COMMAND = 0
 
 # Command whitelist
-SUPPORTED_COMMAMDS = ['dot', 'neato', 'fdp', 'sfdp', 'twopi', 'circo']
+SUPPORTED_COMMANDS = ['dot', 'neato', 'fdp', 'sfdp', 'twopi', 'circo']
 
 # DEFAULT COLOR OF NODES, EDGES AND FONT TEXTS
 DEFAULT_COLOR = '789ABC'
@@ -225,6 +225,12 @@ HTML_COLORS = {'aliceblue': '#f0f8ff',
  'yellow': '#ffff00',
  'yellowgreen': '#9acd32'}
 
+ESC_CHAR = {
+    '$': "\$",
+    '*': "\*",
+    '%': "\%",
+}
+
 class MkdocsGraphvizExtension(markdown.Extension):
 
     def __init__(self, **kwargs):
@@ -242,7 +248,7 @@ class MkdocsGraphvizExtension(markdown.Extension):
         }
         super(MkdocsGraphvizExtension, self).__init__(**kwargs)
 
-    def extendMarkdown(self, md, md_globals):
+    def extendMarkdown(self, md):
         """ Add MkdocsGraphvizPreprocessor to the Markdown instance. """
         md.registerExtension(self)
 
@@ -356,8 +362,9 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
 
     def run(self, lines):
         """ Match and generate dot code blocks."""
-
         text = "\n".join(lines)
+        for c in ESC_CHAR.keys():
+            text = text.replace(c,ESC_CHAR[c])
         while 1:
             m, block_type = self.read_block(text)
             if not m:
@@ -366,7 +373,7 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
                 if block_type == GRAPHVIZ_COMMAND: # General Graphviz command
                     command = m.group('command')
                      # Whitelist command, prevent command injection.
-                    if command not in SUPPORTED_COMMAMDS:
+                    if command not in SUPPORTED_COMMANDS:
                         raise Exception('Command not supported: %s' % command)
                     filename = m.group('filename')
                     decalage = self.get_decalage("graphviz "+command, text)

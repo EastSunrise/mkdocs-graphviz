@@ -162,7 +162,7 @@ Other examples in these pages:
 # CSS / JS Classes
 
 * Each graph has both a `dot` and a `graphviz` class in the `<svg>` tag, wich can be used for further customization via CSS / JS.
-* Note that Javascript rod2ik's cdn `mkdocs_graphvis.js` **MUST BE SET** in `mkdocs.yml` for `light_theme` and `dark_theme` options to be functionnal. All the other functionnalities don't need this extra Javascript.
+* Note that Javascript rod2ik's cdn `mkdocs_graphvis.js` **MUST BE SET** in `mkdocs.yml` for `light_theme` and `dark_theme` options to be functionnal. Any other functionnalitiy doesn't need this extra Javascript.
 
 ```yaml
 extra_javascript:
