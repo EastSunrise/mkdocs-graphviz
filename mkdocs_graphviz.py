@@ -226,8 +226,8 @@ HTML_COLORS = {'aliceblue': '#f0f8ff',
  'yellowgreen': '#9acd32'}
 
 ESC_CHAR = {
-    '$': "\$",
-    '*': "\*",
+    '$': "\\\\\$",
+    '*': "\\\\\*",
     '%': "\%",
 }
 
@@ -360,11 +360,14 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
         decalage = i_command - i_previous_linefeed-1
         return decalage
 
+    def escape_chars(self, text):
+        for c in ESC_CHAR.keys():
+            text.replace(c,ESC_CHAR[c])
+        return text
+
     def run(self, lines):
         """ Match and generate dot code blocks."""
         text = "\n".join(lines)
-        for c in ESC_CHAR.keys():
-            text = text.replace(c,ESC_CHAR[c])
         while 1:
             m, block_type = self.read_block(text)
             if not m:
@@ -375,9 +378,11 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
                      # Whitelist command, prevent command injection.
                     if command not in SUPPORTED_COMMANDS:
                         raise Exception('Command not supported: %s' % command)
+                    text = self.escape_chars(text)
                     filename = m.group('filename')
                     decalage = self.get_decalage("graphviz "+command, text)
                 else: # DOT command
+                    text = self.escape_chars(text)
                     filename = "noname.svg"
                     command = "dot"
                     decalage = self.get_decalage(command, text)
