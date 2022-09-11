@@ -11,10 +11,11 @@ if sys.argv[-1] == 'publish':
     if os.system("pip freeze | grep twine"):
         print("twine not installed.\nUse `pip install twine`.\nExiting.")
         sys.exit()
-    os.system("python setup.py sdist bdist_wheel")
-    os.system("twine upload dist/*")
-    print("You probably want to also tag the version now:")
-    print("  git tag -a {0} -m 'version {0}'".format(VERSION))
+    # os.system("python setup.py sdist bdist_wheel")
+    os.system("python -m build")
+    os.system("twine -m upload dist/*")
+    print("You probably also want to tag the version now:")
+    print("  git tag -a {0} -m 'v{0}'".format(VERSION))
     print("  git push --tags")
     sys.exit()
 
@@ -25,16 +26,16 @@ setup(
     install_requires=['Markdown>=2.3.1'],
     author="Rodrigo Schwencke",
     author_email="rod2ik.dev@gmail.com",
-    description="Render Graphviz graphs in Mkdocs, as inline SVGs and PNGs, natively compatible with Mkdocs Light & Dark Themes, directly from your Markdown (python3 version)",
+    description="Render Graphviz graphs in Mkdocs, as inline SVGs and PNGs, natively & dynamically compatible with Mkdocs Light & Dark Themes, directly from your Markdown",
     long_description_content_type="text/markdown",
     long_description="""Project Page : [rod2ik/mkdocs-graphviz](https://gitlab.com/rod2ik/mkdocs-graphviz)
 
-Some examples in these pages:
+Some rendering examples can be seen on these pages:
 
 * Trees : https://eskool.gitlab.io/tnsi/donnees/arbres/quelconques/
 * Graphs : https://eskool.gitlab.io/tnsi/donnees/graphes/definitions/
 
-This project is one among others mkdocs-related project.  
+This project is part of other mkdocs-related projects.  
 If you're interested, please consider having a look at this page for a more complete list of all our mkdocs-related projects:
 
 * https://eskool.gitlab.io/mkhack3rs/
