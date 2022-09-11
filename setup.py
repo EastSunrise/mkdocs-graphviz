@@ -27,35 +27,35 @@ setup(
     author_email="rod2ik.dev@gmail.com",
     description="Render Graphviz graphs in Mkdocs, as inline SVGs and PNGs, natively compatible with Mkdocs Light & Dark Themes, directly from your Markdown (python3 version)",
     long_description_content_type="text/markdown",
-    long_description="""Project Page : [rodrigo.schwencke/mkdocs-graphviz](https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz)
+    long_description="""Project Page : [rod2ik/mkdocs-graphviz](https://gitlab.com/rod2ik/mkdocs-graphviz)
 
 Some examples in these pages:
 
 * Trees : https://eskool.gitlab.io/tnsi/donnees/arbres/quelconques/
 * Graphs : https://eskool.gitlab.io/tnsi/donnees/graphes/definitions/
 
-This project is one of others mkdocs-related projects.  
-Please have a look at this page for a more complete view of all projects:
+This project is one among others mkdocs-related project.  
+If you're interested, please consider having a look at this page for a more complete list of all our mkdocs-related projects:
 
 * https://eskool.gitlab.io/mkhack3rs/
 
-This project is a collaboration, from newer to older :
+This project is the result of several independant participants :
 
-* All newer Credits: [rodrigo.schwencke/mkdocs-graphviz](https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz)
-* Cesare Morel [cesaremorel/markdown-inline-graphviz](https://github.com/cesaremorel/markdown-inline-graphviz), and before him,
-* Steffen Prince in [sprin/markdown-inline-graphviz](https://github.com/sprin/markdown-inline-graphviz), 
-* Initially inspired by Jawher Moussa [jawher/markdown-dot](https://github.com/jawher/markdown-dot)
+* For All newer Credits: Rodrigo Schwencke at [rod2ik/mkdocs-graphviz](https://gitlab.com/rod2ik/mkdocs-graphviz)
+* Cesare Morel at [cesaremorel/markdown-inline-graphviz](https://github.com/cesaremorel/markdown-inline-graphviz), and before him,
+* Steffen Prince at [sprin/markdown-inline-graphviz](https://github.com/sprin/markdown-inline-graphviz), 
+* Initially inspired by Jawher Moussa at [jawher/markdown-dot](https://github.com/jawher/markdown-dot)
     
 In order to get it work with pip (python3) and mkdocs.
 
-If you use python 2, please use the original extension instead.
+If you use python 2, please consider using the original extension instead.
 
 Licences:
 
 * All newer parts (Rodrigo Schwencke) are [GPLv3+](https://opensource.org/licenses/GPL-3.0)
 * Older parts (Cesare Morel, Steffen Prince, Jawher Moussa) are [MIT License](http://www.opensource.org/licenses/mit-license.php)""",
     license="GPLv3+",
-    url="https://gitlab.com/rodrigo.schwencke/mkdocs-graphviz.git",
+    url="https://gitlab.com/rod2ik/mkdocs-graphviz.git",
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Education',
