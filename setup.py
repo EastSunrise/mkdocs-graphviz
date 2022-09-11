@@ -2,21 +2,33 @@ import os
 import sys
 from setuptools import setup
 
-VERSION = '1.4.7'
+username = os.getenv('TWINE_USERNAME')
+password = os.getenv('TWINE_PASSWORD')
+
+VERSION = '1.4.8'
+GIT_VERSION_MESSAGE ="""Update Setup.py
+"""
 
 if sys.argv[-1] == 'publish':
-    if os.system("pip freeze | grep wheel"):
-        print("wheel not installed.\nUse `pip install wheel`.\nExiting.")
+    if os.system("pip freeze | grep build"):
+        print("'build' not installed.\nUse `pip install build`.\nExiting.")
         sys.exit()
     if os.system("pip freeze | grep twine"):
-        print("twine not installed.\nUse `pip install twine`.\nExiting.")
+        print("'twine' not installed.\nUse `pip install twine`.\nExiting.")
         sys.exit()
     # os.system("python setup.py sdist bdist_wheel")
     os.system("python -m build")
-    os.system("twine -m upload dist/*")
-    print("You probably also want to tag the version now:")
-    print("  git tag -a {0} -m 'v{0}'".format(VERSION))
-    print("  git push --tags")
+    os.system(f"python -m twine upload dist/* -u {username} -p {password}")
+    print(f"You probably also want to git push project, create v{VERSION} tag, and push it too :\n")
+    gitExport=input("Do you want to do it right now? [y(default) / n]")
+    if gitExport=="y" or gitExport=="":
+        os.system(f"git add . && git commit -m '{GIT_VERSION_MESSAGE}' && git push")
+        os.system(f"git tag -a {VERSION} -m 'v{VERSION}'")
+        os.system(f"git push --tags")
+    else:
+        print("You may still consider adding the following new tag later on :")
+        print(f"git tag -a {VERSION} -m 'v{VERSION}'")
+        print(f"git push --tags")
     sys.exit()
 
 setup(
