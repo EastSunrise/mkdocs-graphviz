@@ -5,24 +5,26 @@ from setuptools import setup
 username = os.getenv('TWINE_USERNAME')
 password = os.getenv('TWINE_PASSWORD')
 
-VERSION = '1.4.8'
+VERSION = '1.4.85'
 GIT_VERSION_MESSAGE ="""Update Setup.py
 """
 
 if sys.argv[-1] == 'publish':
     if os.system("pip freeze | grep build"):
-        print("'build' not installed.\nUse `pip install build`.\nExiting.")
+        print("'build' is not installed.\nUse `pip install build`.\nExiting.")
         sys.exit()
     if os.system("pip freeze | grep twine"):
-        print("'twine' not installed.\nUse `pip install twine`.\nExiting.")
+        print("'twine' is not installed.\nUse `pip install twine`.\nExiting.")
         sys.exit()
-    # os.system("python setup.py sdist bdist_wheel")
     os.system("python -m build")
-    os.system(f"python -m twine upload dist/* -u {username} -p {password}")
+    if ((username is not None) and (password is not None)):
+        os.system(f"python -m twine upload dist/* -u {username} -p {password}")
+    else:
+        os.system(f"python -m twine upload dist/*")
     print(f"You probably also want to git push project, create v{VERSION} tag, and push it too :\n")
     gitExport=input("Do you want to do it right now? [y(default) / n]")
     if gitExport=="y" or gitExport=="":
-        os.system(f"git add . && git commit -m '{GIT_VERSION_MESSAGE}' && git push")
+        os.system(f"git add . && git commit -m 'v{VERSION} : {GIT_VERSION_MESSAGE}' && git push")
         os.system(f"git tag -a {VERSION} -m 'v{VERSION}'")
         os.system(f"git push --tags")
     else:
