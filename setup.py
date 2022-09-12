@@ -5,8 +5,8 @@ from setuptools import setup
 username = os.getenv('TWINE_USERNAME')
 password = os.getenv('TWINE_PASSWORD')
 
-VERSION = '1.4.85'
-GIT_VERSION_MESSAGE ="""Update Setup.py
+VERSION = '1.4.87'
+GIT_MESSAGE_FOR_THIS_VERSION ="""Modify Setup.py variable name
 """
 
 if sys.argv[-1] == 'publish':
@@ -24,7 +24,7 @@ if sys.argv[-1] == 'publish':
     print(f"You probably also want to git push project, create v{VERSION} tag, and push it too :\n")
     gitExport=input("Do you want to do it right now? [y(default) / n]")
     if gitExport=="y" or gitExport=="":
-        os.system(f"git add . && git commit -m 'v{VERSION} : {GIT_VERSION_MESSAGE}' && git push")
+        os.system(f"git add . && git commit -m 'v{VERSION} : {GIT_MESSAGE_FOR_THIS_VERSION}' && git push")
         os.system(f"git tag -a {VERSION} -m 'v{VERSION}'")
         os.system(f"git push --tags")
     else:
