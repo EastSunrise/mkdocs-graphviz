@@ -251,10 +251,6 @@ class MkdocsGraphvizExtension(markdown.Extension):
     def extendMarkdown(self, md):
         """ Add MkdocsGraphvizPreprocessor to the Markdown instance. """
         md.registerExtension(self)
-
-        # md.preprocessors.add('graphviz_block',
-        #                      MkdocsGraphvizPreprocessor(md, self.config),
-        #                      "_begin")
         md.preprocessors.register(MkdocsGraphvizPreprocessor(md, self.config), 'graphviz_block', 75)
 
 class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
@@ -423,17 +419,6 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
                     output, err = proc.communicate()
 
                     if filetype == 'svg':
-                        # OLD VERSION
-                        # data_url_filetype = 'svg+xml'
-                        # encoding = 'base64'
-                        # output = self.repair_broken_svg_in(output)
-                        # output = output.encode('utf-8')
-                        # output = base64.b64encode(output).decode('utf-8')
-                        # data_path = f"""data:image/{data_url_filetype};{encoding},{output}"""
-                        # #img = " "*decalage+"![" + filename + "](" + data_path + ")"
-                        # img = " "*decalage+f"""<img src="{data_path}" class="dot graphviz" />"""
-
-                        # NEW VERSION
                         output = self.repair_broken_svg_in(output)
                         img = " "*decalage+f"""{output}"""
 
