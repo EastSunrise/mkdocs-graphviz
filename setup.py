@@ -5,7 +5,7 @@ from setuptools import setup
 username = os.getenv('TWINE_USERNAME')
 password = os.getenv('TWINE_PASSWORD')
 
-VERSION = '1.4.87'
+VERSION = '1.4.9'
 GIT_MESSAGE_FOR_THIS_VERSION ="""Modify Setup.py variable name
 """
 

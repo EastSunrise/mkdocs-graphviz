@@ -252,9 +252,10 @@ class MkdocsGraphvizExtension(markdown.Extension):
         """ Add MkdocsGraphvizPreprocessor to the Markdown instance. """
         md.registerExtension(self)
 
-        md.preprocessors.add('graphviz_block',
-                             MkdocsGraphvizPreprocessor(md, self.config),
-                             "_begin")
+        # md.preprocessors.add('graphviz_block',
+        #                      MkdocsGraphvizPreprocessor(md, self.config),
+        #                      "_begin")
+        md.preprocessors.register(MkdocsGraphvizPreprocessor(md, self.config), 'graphviz_block', 75)
 
 class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
 
@@ -365,8 +366,14 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
             text.replace(c,ESC_CHAR[c])
         return text
 
-    def run(self, lines):
-        """ Match and generate dot code blocks."""
+    def run(self, lines): # Preprocessors must extend markdown.Preprocessor
+        """
+        Each subclass of Preprocessor should override the `run` method, which
+        takes the document as a list of strings split by newlines and returns
+        the (possibly modified) list of lines.
+        
+        Match and generate dot code blocks.
+        """
         text = "\n".join(lines)
         while 1:
             m, block_type = self.read_block(text)
