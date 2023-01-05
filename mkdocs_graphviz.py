@@ -71,7 +71,7 @@ DEFAULT_DARKTHEME_COLOR = 'FFFFFF'
 DEFAULT_COLOR = DEFAULT_COLOR.lower()
 DEFAULT_LIGHTTHEME_COLOR = DEFAULT_LIGHTTHEME_COLOR.lower()
 DEFAULT_DARKTHEME_COLOR = DEFAULT_DARKTHEME_COLOR.lower()
-DEFAULT_PRIORITY = 75
+DEFAULT_PRIORITY = '75'
 
 # HTML_COLORS = {}
 # for name, hex in matplotlib.colors.cnames.items():
@@ -254,6 +254,8 @@ class MkdocsGraphvizExtension(markdown.Extension):
         """ Add MkdocsGraphvizPreprocessor to the Markdown instance. """
         md.registerExtension(self)
         # md.preprocessors.register(MkdocsGraphvizPreprocessor(md, self.config), 'graphviz_block', 75)
+        print("self.config['priority'][0] = ", self.config['priority'][0])
+        print("type(self.config['priority'][0]) = ", type(self.config['priority'][0]))
         md.preprocessors.register(MkdocsGraphvizPreprocessor(md, self.config), 'graphviz_block', self.config['priority'][0])
 
 class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
@@ -266,12 +268,14 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
 
     def convert2string(self, config):
         for colorKey in config.keys():
-            self.config[colorKey][0] = str(self.config[colorKey][0])
+            if colorKey not in ['priority']:
+                self.config[colorKey][0] = str(self.config[colorKey][0])
 
     def set_html_colors(self):
         colorDict = self.config.keys()
         for colorKey in self.config.keys(): # translate config options in lowercase
-            self.config[colorKey][0] = self.config[colorKey][0].lower()
+            if colorKey not in ['priority']:
+                self.config[colorKey][0] = self.config[colorKey][0].lower()
             # print("self.config[colorKey][0]=",self.config[colorKey][0])
         if self.config['color'][0] in HTML_COLORS.keys():
             self.config['color'][0] = HTML_COLORS[self.config['color'][0]]
@@ -283,7 +287,8 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
             if self.config[colorKey][0] in HTML_COLORS.keys():
                 self.config[colorKey][0] = HTML_COLORS[self.config[colorKey][0]]
             elif self.config[colorKey][0] != DEFAULT_COLOR: # If more specific, set specific
-                    self.config[colorKey][0] = "#"+self.config[colorKey][0]
+                    if colorKey not in ['priority']:
+                        self.config[colorKey][0] = "#"+self.config[colorKey][0]
             else: # otherwise set default to 'color' default
                 self.config[colorKey][0] = self.config['color'][0]
         # SPECIAL KEYS:
