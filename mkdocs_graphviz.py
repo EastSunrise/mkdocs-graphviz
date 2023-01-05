@@ -253,10 +253,7 @@ class MkdocsGraphvizExtension(markdown.Extension):
     def extendMarkdown(self, md):
         """ Add MkdocsGraphvizPreprocessor to the Markdown instance. """
         md.registerExtension(self)
-        # md.preprocessors.register(MkdocsGraphvizPreprocessor(md, self.config), 'graphviz_block', 75)
-        print("self.config['priority'][0] = ", self.config['priority'][0])
-        print("type(self.config['priority'][0]) = ", type(self.config['priority'][0]))
-        md.preprocessors.register(MkdocsGraphvizPreprocessor(md, self.config), 'graphviz_block', self.config['priority'][0])
+        md.preprocessors.register(MkdocsGraphvizPreprocessor(md, self.config), 'graphviz_block', int(self.config['priority'][0]))
 
 class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
 
@@ -268,14 +265,12 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
 
     def convert2string(self, config):
         for colorKey in config.keys():
-            if colorKey not in ['priority']:
-                self.config[colorKey][0] = str(self.config[colorKey][0])
+            self.config[colorKey][0] = str(self.config[colorKey][0])
 
     def set_html_colors(self):
         colorDict = self.config.keys()
         for colorKey in self.config.keys(): # translate config options in lowercase
-            if colorKey not in ['priority']:
-                self.config[colorKey][0] = self.config[colorKey][0].lower()
+            self.config[colorKey][0] = self.config[colorKey][0].lower()
             # print("self.config[colorKey][0]=",self.config[colorKey][0])
         if self.config['color'][0] in HTML_COLORS.keys():
             self.config['color'][0] = HTML_COLORS[self.config['color'][0]]
