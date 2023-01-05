@@ -71,6 +71,7 @@ DEFAULT_DARKTHEME_COLOR = 'FFFFFF'
 DEFAULT_COLOR = DEFAULT_COLOR.lower()
 DEFAULT_LIGHTTHEME_COLOR = DEFAULT_LIGHTTHEME_COLOR.lower()
 DEFAULT_DARKTHEME_COLOR = DEFAULT_DARKTHEME_COLOR.lower()
+DEFAULT_PRIORITY = 75
 
 # HTML_COLORS = {}
 # for name, hex in matplotlib.colors.cnames.items():
@@ -244,14 +245,16 @@ class MkdocsGraphvizExtension(markdown.Extension):
             'node_color' :      [DEFAULT_COLOR, 'Default color for Node Roundings'], 
             'node_fontcolor' :  [DEFAULT_COLOR, 'Default color for Node Texts'],
             'edge_color' :      [DEFAULT_COLOR, 'Default color for Edge Roundings'],
-            'edge_fontcolor' :  [DEFAULT_COLOR, 'Default color for Edge Texts']
+            'edge_fontcolor' :  [DEFAULT_COLOR, 'Default color for Edge Texts'],
+            'priority' :        [DEFAULT_PRIORITY, 'Default Priority for this Extension']
         }
         super(MkdocsGraphvizExtension, self).__init__(**kwargs)
 
     def extendMarkdown(self, md):
         """ Add MkdocsGraphvizPreprocessor to the Markdown instance. """
         md.registerExtension(self)
-        md.preprocessors.register(MkdocsGraphvizPreprocessor(md, self.config), 'graphviz_block', 75)
+        # md.preprocessors.register(MkdocsGraphvizPreprocessor(md, self.config), 'graphviz_block', 75)
+        md.preprocessors.register(MkdocsGraphvizPreprocessor(md, self.config), 'graphviz_block', self.config['priority'][0])
 
 class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
 

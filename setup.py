@@ -5,8 +5,8 @@ from setuptools import setup
 username = os.getenv('TWINE_USERNAME')
 password = os.getenv('TWINE_PASSWORD')
 
-VERSION = '1.4.91'
-GIT_MESSAGE_FOR_THIS_VERSION ="""Modify Setup.py variable name
+VERSION = '1.4.92'
+GIT_MESSAGE_FOR_THIS_VERSION ="""Add configuration param for priority of the plugin
 """
 
 if sys.argv[-1] == 'publish':

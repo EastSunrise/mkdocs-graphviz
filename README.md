@@ -77,6 +77,7 @@ markdown_extensions:
         node_fontcolor: 789ABC   # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
         edge_color: 789ABC       # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
         edge_fontcolor: 789ABC   # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+        priority: 75             # The priority for this Markdown Extension (DEFAULT : 75)
 ```
 
 Where:
@@ -98,6 +99,7 @@ Where:
 * `node_fontcolor` (default `789ABC`) sets the color of all Texts inside Nodes
 * `edge_color` (default `789ABC`) sets the color of all Edges
 * `edge_fontcolor` (default `789ABC`) sets the color of all Labels aside Edges
+* `priority` (default `75`) sets the priority for this Markdown Extension
 
 ## Color Codes
 
@@ -162,7 +164,7 @@ Other examples in these pages:
 # CSS / JS Classes
 
 * Each graph has both a `dot` and a `graphviz` class in the `<svg>` tag, wich can be used for further customization via CSS / JS.
-* Note that Javascript rod2ik's cdn `mkdocs_graphvis.js` **MUST BE SET** in `mkdocs.yml` for `light_theme` and `dark_theme` options to be functionnal. Any other functionnalitiy doesn't need this extra Javascript.
+* Note that Javascript rod2ik's cdn `mkdocs_graphviz.js` **MUST BE SET** in `mkdocs.yml` for `light_theme` and `dark_theme` options to be functionnal. Any other functionnality doesn't need this extra Javascript.
 
 ```yaml
 extra_javascript:
