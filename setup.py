@@ -5,8 +5,8 @@ from setuptools import setup
 username = os.getenv('TWINE_USERNAME')
 password = os.getenv('TWINE_PASSWORD')
 
-VERSION = '1.4.97'
-GIT_MESSAGE_FOR_THIS_VERSION ="""Add configuration param for priority of the plugin
+VERSION = '1.5'
+GIT_MESSAGE_FOR_THIS_VERSION ="""Fix Graphviz Re Block, and Escape Caracters
 """
 
 if sys.argv[-1] == 'publish':
