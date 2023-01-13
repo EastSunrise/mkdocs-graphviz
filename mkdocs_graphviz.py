@@ -270,7 +270,6 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
         colorDict = self.config.keys()
         for colorKey in self.config.keys(): # translate config options in lowercase
             self.config[colorKey][0] = self.config[colorKey][0].lower()
-            # print("self.config[colorKey][0]=",self.config[colorKey][0])
         if self.config['color'][0] in HTML_COLORS.keys():
             self.config['color'][0] = HTML_COLORS[self.config['color'][0]]
         else: # SET DEFAULT to #+'color'
@@ -343,9 +342,6 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
             0 for a'grapvhiz' command, 
             1 if 'dot' command)  
         or (None, None), if not a graphviz or dot command block"""
-        print("TEXT TO SEARCH=", text)
-        print("SEARCH GRAPHVIZ=", BLOCK_RE_GRAPHVIZ.search(text))
-        print("SEARCH DOT=", BLOCK_RE_DOT.search(text))
         blocks = [BLOCK_RE_GRAPHVIZ.search(text),
                   BLOCK_RE_DOT.search(text)]
         for i in range(len(blocks)):
@@ -381,17 +377,13 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
         Match and generate dot code blocks.
         """
         text = "\n".join(lines)
-        print("TEXT=", text)
         while 1:
             m, block_type = self.read_block(text)
-            print("m =", m)
-            print("BLOCK_TYPE =", block_type)
             if not m:
                 break
             else:
                 if block_type == GRAPHVIZ_COMMAND: # General Graphviz command
                     command = m.group('command')
-                    print("GRAPHVIZ COMMAND DETECTED with command=", command)
                      # Whitelist command, prevent command injection.
                     if command not in SUPPORTED_COMMANDS:
                         raise Exception('Command not supported: %s' % command)
@@ -399,7 +391,6 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
                     filename = m.group('filename')
                     decalage = self.get_decalage("graphviz "+command, text)
                 else: # DOT command
-                    print("DOT COMMAND DETECTED")
                     # text = self.escape_chars(text)
                     filename = "noname.svg"
                     command = "dot"
@@ -435,7 +426,6 @@ class MkdocsGraphvizPreprocessor(markdown.preprocessors.Preprocessor):
 
                     if filetype == 'svg':
                         output = self.repair_broken_svg_in(output)
-                        print("output=", output)
                         img = " "*decalage+f"""{output}"""
 
                     if filetype == 'png':
