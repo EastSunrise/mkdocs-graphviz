@@ -5,7 +5,7 @@ from setuptools import setup
 username = os.getenv('TWINE_USERNAME')
 password = os.getenv('TWINE_PASSWORD')
 
-VERSION = '1.5'
+VERSION = '1.5.1'
 GIT_MESSAGE_FOR_THIS_VERSION ="""Fix Graphviz Re Block, and Escape Caracters
 """
 
