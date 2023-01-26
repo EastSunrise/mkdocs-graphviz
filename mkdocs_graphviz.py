@@ -229,7 +229,7 @@ HTML_COLORS = {'aliceblue': '#f0f8ff',
 ESC_CHAR = {
     '$': r"\$",
     '*': r"\*",
-    '^': r"\^",
+    '^': r"&#94;",
 }
 
 class MkdocsGraphvizExtension(markdown.Extension):

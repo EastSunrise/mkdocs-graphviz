@@ -5,8 +5,8 @@ from setuptools import setup
 username = os.getenv('TWINE_USERNAME')
 password = os.getenv('TWINE_PASSWORD')
 
-VERSION = '1.5.1'
-GIT_MESSAGE_FOR_THIS_VERSION ="""Fix Graphviz Re Block, and Escape Caracters
+VERSION = '1.5.2'
+GIT_MESSAGE_FOR_THIS_VERSION ="""Fix Caret Symbol Escape Caracter
 """
 
 if sys.argv[-1] == 'publish':
