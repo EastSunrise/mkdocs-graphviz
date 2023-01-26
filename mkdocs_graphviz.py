@@ -1,3 +1,5 @@
+#  License: GNU GPLv3+, Rodrigo Schwencke (Copyleft)
+
 """
 Graphviz extension for Markdown (e.g. for mkdocs) :
 Renders the output inline, eliminating the need to configure an output
@@ -5,37 +7,6 @@ directory.
 
 Supports outputs types of SVG and PNG. The output will be taken from the
 filename specified in the tag, if given, or. Example:
-
-in SVG:
-
-```dot
-digraph G {
-    rankdir=LR
-    Earth [peripheries=2]
-    Mars
-    Earth -> Mars
-}
-```
-
-```graphviz dot attack_plan.svg
-digraph G {
-    rankdir=LR
-    Earth [peripheries=2]
-    Mars
-    Earth -> Mars
-}
-```
-
-in PNG:
-
-```graphviz dot attack_plan.png
-digraph G {
-    rankdir=LR
-    Earth [peripheries=2]
-    Mars
-    Earth -> Mars
-}
-```
 
 Requires the graphviz library (http://www.graphviz.org/) and python 3
 

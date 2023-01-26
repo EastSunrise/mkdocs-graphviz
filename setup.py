@@ -1,3 +1,5 @@
+#  License: GNU GPLv3+, Rodrigo Schwencke (Copyleft)
+
 import os
 import sys
 from setuptools import setup
@@ -5,8 +7,8 @@ from setuptools import setup
 username = os.getenv('TWINE_USERNAME')
 password = os.getenv('TWINE_PASSWORD')
 
-VERSION = '1.5.2'
-GIT_MESSAGE_FOR_THIS_VERSION ="""Fix Caret Symbol Escape Caracter
+VERSION = '1.5.3'
+GIT_MESSAGE_FOR_THIS_VERSION ="""Adds Copyleft to Rodrigo Schwencke
 """
 
 if sys.argv[-1] == 'publish':
